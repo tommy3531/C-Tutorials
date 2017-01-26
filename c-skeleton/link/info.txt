@@ -1,0 +1,4 @@
+1. Add File/folder to link directory
+2. Change CMakeList.txt and add link_Library director and link library to executable
+3. Complie code from source ./configure make make install etc.
+

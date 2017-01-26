@@ -1,0 +1,10 @@
+************************************ Algorithms with C **********************************************************************
+Chapter 2. Pointer Manipulation
+	1. Pointer Fundamentals
+		Pointers contain memory addresses, they are variables that point to a memory address where the data is stored
+	2. Storage Allocation
+	3. Aggregates adn pointer arithmetic
+	4. Pointers as parameters to functions
+	5. Pointers to pointers
+	6. Generic pointers and casts
+	7. Function pointers

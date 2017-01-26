@@ -1,0 +1,3 @@
+/Users/tommarler/Documents/CTutorial/c-skeleton/build/CMakeFiles/rebuild_cache.dir
+/Users/tommarler/Documents/CTutorial/c-skeleton/build/CMakeFiles/edit_cache.dir
+/Users/tommarler/Documents/CTutorial/c-skeleton/build/CMakeFiles/testProjectExecutable.dir

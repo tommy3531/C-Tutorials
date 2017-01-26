@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/tommarler/Documents/CTutorial/c-skeleton/include/binaryTrees/binaryTree.h
+
+/Users/tommarler/Documents/CTutorial/c-skeleton/src/binaryTree.c
+stdio.h
+-
+stdlib.h
+-
+../include/binaryTrees/binaryTree.h
+/Users/tommarler/Documents/CTutorial/c-skeleton/include/binaryTrees/binaryTree.h
+
