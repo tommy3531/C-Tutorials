@@ -1,21 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include <stdbool.h>
 #include "../include/fileio.h"
 
-
+typedef struct Customer {
+	char name[20];
+	int number;
+}Customer;
 
 int main(int argc, const char *argv[])
-{	
-	FILE *fin;
-	FILE *fout;
+{
+	Customer customer;
+	FILE *fptr;
 
-	printf("This is from fileio.c \n");
-
-	fin = fopen("../include/data/read.txt", "r");
-	fout = fopen("../include/data/write.txt", "w");
-	fileFputs(fout);
-	//fileCopy(fin, fout);
-	
+	if((fptr = fopen("../include/data/customer.txt", "r")) == NULL) {
+		printf("Error! Can not open file\n");
+		exit(1);
+	}
+	while(fscanf(fptr, "%s %d\n", customer.name, &customer.number) != EOF) {
+		printf("%s %d\n", customer.name, customer.number);
+	}
 }

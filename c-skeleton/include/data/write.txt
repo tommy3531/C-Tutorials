@@ -1,1 +1,1 @@
-This is written to file with fputs
+This is written to file with fputs new thing

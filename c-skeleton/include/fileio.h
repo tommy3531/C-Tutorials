@@ -39,5 +39,5 @@ void fileFputs(FILE *ptr)
 		printf("The file cannot be opened");
 		exit(1);
 	}
-	fputs("This is written to file with fputs\n", ptr);
+	fputs("This is written to file with fputs new thing\n", ptr);
 } 

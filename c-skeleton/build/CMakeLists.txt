@@ -46,7 +46,7 @@ set(testProject_SOURCES
     #../src/triplesum.c
     #../src/arrayoperations.c
     #../src/loopoperations.c
-    #../src/fileio.c
+    ../src/fileio.c
     #../src/bubblesort.c
     #../src/binarySearchTree.c
     #../src/yaml.c
@@ -56,7 +56,7 @@ set(testProject_SOURCES
 	#../src/linkedList.c
     #../src/stackLinkedList.c
     #../src/converter.c
-    ../src/binaryTree.c
+    #../src/binaryTree.c
     #../src/doublyLinkedList.c
     #../include/data/read.txt
     #../include/data/write.txt
