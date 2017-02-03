@@ -414,7 +414,7 @@
       <updated>1483574122604</updated>
       <workItem from="1483574123732" duration="6852000" />
       <workItem from="1484088125821" duration="28603000" />
-      <workItem from="1486062366079" duration="6721000" />
+      <workItem from="1486062366079" duration="6763000" />
     </task>
     <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
       <created>1486088982949</created>
@@ -423,11 +423,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486088982949</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
+      <created>1486089401519</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1486089401519</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42176000" />
+    <option name="totallyTimeSpent" value="42218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="717" extended-state="6" />
