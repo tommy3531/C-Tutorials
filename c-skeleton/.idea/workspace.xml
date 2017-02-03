@@ -12,14 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03e08acc-f06c-43b8-893d-d86349dfa4db" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/include/data/customer.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/c-skeleton.iml" afterPath="$PROJECT_DIR$/.idea/c-skeleton.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeLists.txt" afterPath="$PROJECT_DIR$/build/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/data/write.txt" afterPath="$PROJECT_DIR$/include/data/write.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/fileio.h" afterPath="$PROJECT_DIR$/include/fileio.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fileio.c" afterPath="$PROJECT_DIR$/src/fileio.c" />
     </list>
     <ignored path="c-skeleton.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -421,12 +414,20 @@
       <updated>1483574122604</updated>
       <workItem from="1483574123732" duration="6852000" />
       <workItem from="1484088125821" duration="28603000" />
-      <workItem from="1486062366079" duration="6585000" />
+      <workItem from="1486062366079" duration="6721000" />
     </task>
+    <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
+      <created>1486088982949</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1486088982949</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42040000" />
+    <option name="totallyTimeSpent" value="42176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="717" extended-state="6" />
@@ -462,6 +463,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Read text file with fscanf, sent the fscanf objects to the Customer struct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Read text file with fscanf, sent the fscanf objects to the Customer struct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
