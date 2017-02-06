@@ -54,6 +54,12 @@ void sort(struct customer searchCustomer[], int numberOfStructElements){
         heapify(searchCustomer, i, total);
     }
 
+    for(int i = total; i > 0; i--){
+        swap(searchCustomer, 0, i);
+        total--;
+        heapify(searchCustomer, 0, total);
+    }
+
     //for(int i = total; i > 0; i--)
 }
 
@@ -80,9 +86,9 @@ void heapify(struct customer searchCustomer[], int index, int total){
 
 void swap(struct customer searchCustomer[], int index, int parent){
     do {
-        int temp = searchCustomer[index].number;
-        searchCustomer[index].number = searchCustomer[parent].number;
-        searchCustomer[parent].number = temp;
+        struct customer temp = searchCustomer[index];
+        searchCustomer[index] = searchCustomer[parent];
+        searchCustomer[parent] = temp;
     } while (0);
 }
 
@@ -109,9 +115,9 @@ void restoreUp(struct customer customer[], int index){
 void printHeapTree(struct customer customer[]){
 
 printf("                                    %s %d\n", "index->0", customer[0].number);
-printf("                  %s %d                                %d %s\n\n", "index->1", customer[1].number, customer[2].number, "2<-index");
-printf("          %s %d                   %d %s                    %s %d                   %d %s\n\n","index->3", customer[3].number, customer[4].number, "4<-index", "index->5", customer[5].number, customer[6].number, "6<-index");
-printf("%s %d       %s %d     %s %d          %s % d          %s %d       %s %d           %s %d \n", "index->7", customer[7].number,"index->8", customer[8].number,
+printf("                  %s %d                                %s %d\n\n", "index->1", customer[1].number, "index->2", customer[2].number);
+printf("       %s %d                             %s %d                    %s %d             %s %d\n\n","index->3", customer[3].number, "index->4", customer[4].number,"index->5", customer[5].number, "index->6", customer[6].number);
+printf("%s %d       %s %d    %s %d       %s % d      %s %d       %s %d           %s %d \n", "index->7", customer[7].number,"index->8", customer[8].number,
                                                                                      "index->9", customer[9].number,"index->10", customer[10].number,
                                                                                      "index->11", customer[11].number,"index->12", customer[12].number,
                                                                                      "index->13", customer[13].number);
