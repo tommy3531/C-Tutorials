@@ -51,7 +51,7 @@ void sort(struct customer searchCustomer[], int numberOfStructElements){
     }
     for(int i = total; i > 0; i--){
         swap(searchCustomer, 0, i);
-        --total;
+        total--;
         heapify(searchCustomer, 0, total);
     }
 
@@ -62,14 +62,14 @@ void heapify(struct customer searchCustomer[], int index, int total){
 
     int largest = index;
     int left = 2 * index;
-    int right = left + 1;
+    int right = 2 * index + 1;
 
-    if(left <= total && searchCustomer[left].number > searchCustomer[largest].number){
+    if(left <= total && searchCustomer[left].number < searchCustomer[largest].number){
         largest = left;
 
     }
 
-    if(right <= total && searchCustomer[right].number > searchCustomer[largest].number){
+    if(right <= total && searchCustomer[right].number < searchCustomer[largest].number){
         largest = right;
     }
 
@@ -102,10 +102,9 @@ printf("%s %d       %s %d    %s %d       %s % d      %s %d  %s %d   %s %d \n    
 
 void printData(struct customer customer[], int size){
     for (int i = 0; i <= size; i++) {
-        printf("This is the index value: %d\n", i);
-        printf("This is the struct value: %d\n", customer[i].number);
+        //printf("Finally got it to sort\n");
+        printf("%10s   %d\n", customer[i].name, customer[i].number);
     }
-
 }
 
 
