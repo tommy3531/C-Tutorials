@@ -32,7 +32,8 @@ Ryan    89
 Cleveland   90
 Charles 34
 Clint   76
-Emile   90
+
+
 Brenton 23
 Delbert 65
 Raymon  21
