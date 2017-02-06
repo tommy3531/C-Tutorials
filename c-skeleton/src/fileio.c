@@ -129,19 +129,6 @@ void printDataAlpha(struct customer customer[], int size){
     printf("\n");
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////// This work dont mess with it ///////////////////////////////////////////////////////////////////
 void sort(struct customer searchCustomer[], int numberOfStructElements){
     int total = numberOfStructElements - 1;
 
@@ -153,7 +140,7 @@ void sort(struct customer searchCustomer[], int numberOfStructElements){
     // Extract element one by one from heap
     for(int i = total; i > 0; i--){
 
-        // Move top root element to end element
+        // Move parent element to end element
         swap(searchCustomer, 0, i);
 
         // Reduce heap size
@@ -166,18 +153,23 @@ void sort(struct customer searchCustomer[], int numberOfStructElements){
 }
 
 void heapify(struct customer searchCustomer[], int index, int total){
-    //printf("Heapify [%d] = %d\n", index, searchCustomer[index].number);
 
     int largest = index;
     int left = 2 * index;
     int right = 2 * index + 1;
 
+    // If the left child is larger than the parent node
     if(left <= total && searchCustomer[left].number > searchCustomer[largest].number){
+
+        // Make the left node the largest
         largest = left;
 
     }
 
+    // If the right child is larger than the parent node
     if(right <= total && searchCustomer[right].number > searchCustomer[largest].number){
+
+        // Make the right node the largest
         largest = right;
     }
 
@@ -189,6 +181,8 @@ void heapify(struct customer searchCustomer[], int index, int total){
 }
 
 void swap(struct customer searchCustomer[], int index, int largest){
+
+    // Keep on doing th swap until o
     do {
         struct customer temp = searchCustomer[index];
         searchCustomer[index] = searchCustomer[largest];
@@ -214,129 +208,3 @@ void printData(struct customer customer[], int size){
         printf("%10s   %d\n", customer[i].name, customer[i].number);
     }
 }
-
-
-
-
-////////////////// Extra Code /////////////////////////////////////////////////////////////////////////////////////////
-//resultLeft = strcmp(searchCustomer[left].name, searchCustomer[largest].name);
-//printf("This is the index value: %d\n ",index);
-//printf("Comparing Left %s with %s\n", searchCustomer[left].name, searchCustomer[largest].name);
-//printf("This is the Leftresult: %3d\n\n", resultLeft);
-//
-//
-//resultRight = strcmp(searchCustomer[right].name, searchCustomer[largest].name);
-//printf("Comparing Right %s with %s\n", searchCustomer[right].name, searchCustomer[largest].name);
-//printf("This is the Rightresult: %d\n\n", resultRight);
-
-//    if(result < 0){
-//        printf("Left %s < Largest %s\n", searchCustomer[left].name, searchCustomer[largest].name);
-//    }
-//
-//    if(result > 0){
-//        printf("Left %s > Largest %s\n", searchCustomer[left].name, searchCustomer[largest].name);
-//    }
-//
-//    if(result == 0){
-//        printf("Left %s == Largest %s\n", searchCustomer[left].name, searchCustomer[largest].name);
-//    }
-
-//printf("%s < %s\n", searchCustomer[left].name, searchCustomer[largest].name);
-//printf("%d = %d\n", largest, left);
-//printf("%s %s\n", searchCustomer[left].name, searchCustomer[largest].name);
-//void heapSort(struct Customer customerStruct[], int index){
-//
-//    struct Customer customer[] = {{{0,0}}};
-//    customer[index].number = heapify(customerStruct, index);
-//    printf("%d", customer[index].number);
-//
-//        //readFromFile(customer, index, fptr);
-//        //checkIfArrayHasRoom(customer, index);
-//        //printf("%s %d\n", customer[index].name, customer[index].number);
-//}
-//
-//
-//struct Customer[] heapify(struct Customer customerStruct[], int index){
-//
-//    int item,i,j,k;
-//    for(k=1 ; k<index ; k++)
-//    {
-//        item = customerStruct[k].number;
-//        i = k;
-//        j = (i-1)/2;
-//
-//        while( (i>0) && (item>customerStruct[j].number) )
-//        {
-//            customerStruct[i].number = customerStruct[j].number;
-//            i = j;
-//            j = (i-1)/2;
-//        }
-//        customerStruct[i].number = item;
-//        printf("%d\n", customerStruct[item].number);
-//    }
-//    return customerStruct;
-//    //printf("%s", customerStruct[])
-//}
-//void restoreUp(struct Customer customerStruct[], int keyThatValiatesTheHeapOrder){
-//
-//    // Key that has to be more up in the order
-//    int key = 0;
-//
-//    // Parnet key
-//    int parent = 0;
-//
-//    // Get the key that is in valilation of the heap order
-//    key = customerStruct[keyThatValiatesTheHeapOrder].number;
-//
-//    // Calculate the parent keys position within the array
-//    parent = keyThatValiatesTheHeapOrder/2;
-//
-//    while(customerStruct[parent].number > key){
-//        customerStruct[keyThatValiatesTheHeapOrder].number = customerStruct[parent].number;
-//        keyThatValiatesTheHeapOrder = parent;
-//        parent = keyThatValiatesTheHeapOrder/2;
-//    }
-//    customerStruct[keyThatValiatesTheHeapOrder].number = key;
-//
-//    for(index = 0; index < size; index++){
-//        printf("This is the index value : %d\n", index);
-//        printf("This is the customer name: %s\n", customer[index].name);
-//        printf("This is the customer number: %d\n\n", customer[index].number);
-//        //readFromFile(customer, index, fptr);
-//        //checkIfArrayHasRoom(customer, index);
-//        //printf("%s %d\n", customer[index].name, customer[index].number);
-//    }
-//
-//    printf("This is the sorted struct array\n");
-//    for(int i = 0; i < 100; i++){
-//        printf("Sorting by this number: %d\n\n", customerStruct[i].number);
-////        printf("Customer Name: %s\n", customerStruct[i].name);
-////        printf("Index Value: %d\n", i);
-//
-//
-//    }
-//
-//
-//}
-
-//
-//     //Text file data has been read into Customer struct
-//
-//
-//
-//    printf("The size is %d\n", size);
-//
-//    for(index = 0; index < size; index++){
-//        printf("This is the index value: %d\n", index);
-//        printf("This is the customer name: %s\n", customer[index].name);
-//        printf("This is the customer number: %d\n\n", customer[index].number);
-//    }
-
-
-
-
-
-
-//while(fscanf(fptr, "%s %d\n", customer.name, &customer.number) != EOF) {
-////		printf("%s %d\n", customer.name, customer.number);
-////	}

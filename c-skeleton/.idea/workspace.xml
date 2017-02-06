@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="03e08acc-f06c-43b8-893d-d86349dfa4db" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/data/customer.txt" afterPath="$PROJECT_DIR$/include/data/customer.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/data/text.txt" afterPath="$PROJECT_DIR$/include/data/text.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fileio.c" afterPath="$PROJECT_DIR$/src/fileio.c" />
     </list>
     <ignored path="c-skeleton.iws" />
@@ -51,8 +49,8 @@
       <file leaf-file-name="fileio.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fileio.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
+            <state relative-caret-position="1614">
+              <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -396,7 +394,7 @@
       <workItem from="1484088125821" duration="28603000" />
       <workItem from="1486062366079" duration="6772000" />
       <workItem from="1486089500616" duration="35174000" />
-      <workItem from="1486354966541" duration="29800000" />
+      <workItem from="1486354966541" duration="30226000" />
     </task>
     <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
       <created>1486088982949</created>
@@ -468,11 +466,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486367525511</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Sorts by alpha and also sorts by int">
+      <created>1486412580650</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1486412580650</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107201000" />
+    <option name="totallyTimeSpent" value="107627000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -527,7 +532,8 @@
     <MESSAGE value="Changed code to sort by struct instead of struct data type" />
     <MESSAGE value="Sorts from smallest to largest, should sort from largest to smallest" />
     <MESSAGE value="Fixed sorting issues now sorts from largestest to smallest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed sorting issues now sorts from largestest to smallest" />
+    <MESSAGE value="Sorts by alpha and also sorts by int" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorts by alpha and also sorts by int" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -884,8 +890,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fileio.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
+        <state relative-caret-position="1614">
+          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
