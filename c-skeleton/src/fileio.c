@@ -19,6 +19,7 @@ void sortAlpha(struct customer searchCustomer[], int);
 void heapifyAlpha(struct customer searchCustomer[], int, int);
 void swapAlpha(struct customer searchCustomer[], int, int);
 void printDataAlpha(struct customer customer[], int);
+int stringCompare(struct customer customer[], int, int);
 
 
 int main(int argc, const char *argv[])
@@ -51,6 +52,9 @@ int main(int argc, const char *argv[])
 
     // This sorts by int
     printData(customer, size);
+
+    int stringCompareValue = stringCompare(customer, 0, 1);
+    printf("%d", stringCompareValue);
 
     fclose(fptr);
 }
@@ -107,12 +111,23 @@ void heapifyAlpha(struct customer searchCustomer[], int index, int total){
 
 }
 
+int stringCompare(struct customer customer[], int index, int largest){
+
+    int count;
+    printf("%s %s\n", customer[index].name, customer[largest].name);
+    count = (*customer[index].name - *customer[largest].name);
+    printf("This is the result value in stringCompare: %d\n", count);
+    return count;
+}
+
 void swapAlpha(struct customer searchCustomer[], int index, int largest){
 
     // If the result is > 0 swap index is the largest
     // If the result is < 0 the largest is largest
     // If the result is == 0 they are equal
-    int result = strcmp(searchCustomer[index].name, searchCustomer[largest].name);
+    int result = stringCompare(searchCustomer, index, largest);
+    printf("This is the result in swapAlpha: %d\n", result);
+    //int result = strcmp(searchCustomer[index].name, searchCustomer[largest].name);
     if(result > 0){
         struct customer temp = searchCustomer[index];
         searchCustomer[index] = searchCustomer[largest];
