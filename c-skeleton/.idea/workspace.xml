@@ -49,8 +49,8 @@
       <file leaf-file-name="fileio.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fileio.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="115" column="14" selection-start-line="115" selection-start-column="14" selection-end-line="115" selection-end-column="14" />
+            <state relative-caret-position="796">
+              <caret line="201" column="10" selection-start-line="201" selection-start-column="10" selection-end-line="201" selection-end-column="10" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/include/data/text.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+              <caret line="4" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -121,7 +121,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1104" />
     <option name="y" value="23" />
     <option name="width" value="1403" />
     <option name="height" value="1334" />
@@ -394,7 +393,7 @@
       <workItem from="1484088125821" duration="28603000" />
       <workItem from="1486062366079" duration="6772000" />
       <workItem from="1486089500616" duration="35174000" />
-      <workItem from="1486354966541" duration="32469000" />
+      <workItem from="1486354966541" duration="41332000" />
     </task>
     <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
       <created>1486088982949</created>
@@ -480,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486413146229</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added a string compare function becasue I can not use the string.h library">
+      <created>1486415411090</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1486415411090</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109870000" />
+    <option name="totallyTimeSpent" value="118733000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,7 +502,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1104" y="23" width="1403" height="1334" extended-state="0" />
+    <frame x="0" y="23" width="1403" height="1334" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1714906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -505,7 +511,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16398714" sideWeight="0.4970906" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16398714" sideWeight="0.50332224" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3432476" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3432476" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32877815" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -541,7 +547,8 @@
     <MESSAGE value="Fixed sorting issues now sorts from largestest to smallest" />
     <MESSAGE value="Sorts by alpha and also sorts by int" />
     <MESSAGE value="Added New methods to sort alpha, the program is able to sort alpha and by integers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added New methods to sort alpha, the program is able to sort alpha and by integers" />
+    <MESSAGE value="Added a string compare function becasue I can not use the string.h library" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a string compare function becasue I can not use the string.h library" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -880,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/data/text.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/data/customer.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -896,10 +895,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/data/text.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/fileio.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="115" column="14" selection-start-line="115" selection-start-column="14" selection-end-line="115" selection-end-column="14" />
+        <state relative-caret-position="796">
+          <caret line="201" column="10" selection-start-line="201" selection-start-column="10" selection-end-line="201" selection-end-column="10" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
