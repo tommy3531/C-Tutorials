@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <dbg.h>
-#include "../include/fileio.h"
+#include "heapsort.h"
 
-#define MAX_CUSTOMERS 100
+#define MAX_CUSTOMERS 10
+
 typedef struct customer {
     char name[20];
     int number;
 }Customer;
 
-void buildHeap(struct customer customer[], int);
-void printHeapTree(struct customer customer[]);
 void heapify(struct customer searchCustomer[], int, int);
 void sort(struct customer customer[], int);
 void swap(struct customer customer[], int, int);
@@ -22,7 +21,6 @@ void printDataAlpha(struct customer customer[], int);
 int stringCompare(struct customer customer[], int, int);
 int printMin(struct customer customer[], int);
 
-
 int main(int argc, const char *argv[])
 {
 	Customer customer[MAX_CUSTOMERS];
@@ -30,9 +28,8 @@ int main(int argc, const char *argv[])
     int size = 0;
 	FILE *fptr;
 
-	if((fptr = fopen("../include/data/text.txt", "r")) == NULL) {
+	if((fptr = fopen("../include/data/customer.txt", "r")) == NULL) {
 		printf("Error! Can not open file\n");
-		exit(1);
 	}
 
     while(fscanf(fptr, "%s %d", customer[index].name, &customer[index].number) != EOF) {
@@ -90,8 +87,14 @@ void heapifyAlpha(struct customer searchCustomer[], int index, int total){
     int left = 2 * index;
     int right = 2 * index + 1;
 
+    int customerValue = strncmp(searchCustomer[left].name,
+                                    searchCustomer[largest].name, 5);
+
+    printf("This is the value of strncmp %d\n", customerValue);
+
+
     // If the left child is larger than the parent node
-    if(left <= total && searchCustomer[left].name > searchCustomer[largest].name){
+    if(left <= total && customerValue < 0){
 
         // Make the left the largest node
         largest = left;
@@ -99,7 +102,7 @@ void heapifyAlpha(struct customer searchCustomer[], int index, int total){
     }
 
     // If the right child is larger than the parent node
-    if(right <= total && searchCustomer[right].name > searchCustomer[largest].name){
+    if(right <= total && customerValue > 0){
 
         // Make the right node the largest
         largest = right;
@@ -114,27 +117,25 @@ void heapifyAlpha(struct customer searchCustomer[], int index, int total){
 
 int stringCompare(struct customer customer[], int index, int largest){
 
+    //printf("These are the strings to compare %s %s\n", customer[index].name, customer[largest].name);
+
     int count;
     count = (*customer[index].name - *customer[largest].name);
     return count;
 }
 
-void swapAlpha(struct customer searchCustomer[], int index, int largest){
+void swapAlpha(struct customer searchCustomer[], int index, int largest) {
+    do {
 
-    // If the result is > 0 swap index is the largest
-    // If the result is < 0 the largest is largest
-    // If the result is == 0 they are equal
-    int result = stringCompare(searchCustomer, index, largest);
-    if(result > 0){
         struct customer temp = searchCustomer[index];
         searchCustomer[index] = searchCustomer[largest];
         searchCustomer[largest] = temp;
-    }
+    } while (0);
 }
 
 void printDataAlpha(struct customer customer[], int size){
 
-    printf("\nWe have the following customers (sorted by their names): \n\n");
+    //printf("\nWe have the following customers (sorted by their names): \n\n");
     for (int i = 0; i <= size; i++) {
         printf("%10s   %d\n", customer[i].name, customer[i].number);
     }
@@ -163,12 +164,12 @@ void sort(struct customer searchCustomer[], int numberOfStructElements){
     }
 }
 
-void heapify(struct customer searchCustomer[], int index, int total){
+void heapify(struct customer searchCustomer[], int parent, int total){
 
 
-    int largest = index;
-    int left = 2 * index;
-    int right = 2 * index + 1;
+    int largest = parent;
+    int left = 2 * parent;
+    int right = 2 * parent + 1;
 
     // If the left child is larger than the parent node
     if(left <= total && searchCustomer[left].number > searchCustomer[largest].number){
@@ -185,20 +186,22 @@ void heapify(struct customer searchCustomer[], int index, int total){
         largest = right;
     }
 
-    if(largest != index){
-        swap(searchCustomer, index, largest);
+    // If the largest is not the parent move it their
+    if(largest != parent){
+        swap(searchCustomer, parent, largest);
         heapify(searchCustomer, largest, total);
     }
 
 }
 
-void swap(struct customer searchCustomer[], int index, int largest){
+void swap(struct customer searchCustomer[], int index, int smallest){
 
     // Keep on doing th swap
+
     do {
         struct customer temp = searchCustomer[index];
-        searchCustomer[index] = searchCustomer[largest];
-        searchCustomer[largest] = temp;
+        searchCustomer[index] = searchCustomer[smallest];
+        searchCustomer[smallest] = temp;
     } while (0);
 }
 

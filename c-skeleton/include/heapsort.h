@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#define MAX_CUSTOMERS 100
 
 
 //void restoreUp(Customer customerStruct[], int);

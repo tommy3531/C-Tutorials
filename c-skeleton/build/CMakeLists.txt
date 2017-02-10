@@ -20,6 +20,7 @@ set(INCLUDE_LINKEDLIST_DIR ../include/linkedList)
 set(INCLUDE_DOUBLY_LINKED_LIST ../include/doublyLinkedList)
 set(INCLUDE_STACK_LINKED_LIST ../include/stackLinkedList)
 set(INCLUDE_CONVERTER ../include/converter)
+set(INCLUDE_DATA_STRUCTURE ../include/dataStructure)
 
 # Set link directories
 # yaml
@@ -36,6 +37,7 @@ include_directories(${INCLUDE_LINKEDLIST_DIR})
 include_directories(${INCLUDE_DOUBLY_LINKED_LIST})
 include_directories(${INCLUDE_STACK_LINKED_LIST})
 include_directories(${INCLUDE_CONVERTER})
+include_directories(${INCLUDE_DATA_STRUCTURE})
 
 # Sets the program sources
 set(testProject_SOURCES
@@ -46,7 +48,8 @@ set(testProject_SOURCES
     #../src/triplesum.c
     #../src/arrayoperations.c
     #../src/loopoperations.c
-    ../src/fileio.c
+    #../src/heapsort.c
+        ../src/openAddressing.c
     #../src/bubblesort.c
     #../src/binarySearchTree.c
     #../src/yaml.c
