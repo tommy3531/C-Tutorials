@@ -12,8 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03e08acc-f06c-43b8-893d-d86349dfa4db" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/openAddressing.c" afterPath="$PROJECT_DIR$/src/openAddressing.c" />
     </list>
@@ -51,8 +49,8 @@
       <file leaf-file-name="openAddressing.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/openAddressing.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
+            <state relative-caret-position="515">
+              <caret line="154" column="67" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -118,7 +116,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1284" />
+    <option name="width" value="1288" />
     <option name="height" value="1334" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -441,7 +439,7 @@
       <workItem from="1486089500616" duration="35174000" />
       <workItem from="1486354966541" duration="44215000" />
       <workItem from="1486524785369" duration="2928000" />
-      <workItem from="1486596815810" duration="61914000" />
+      <workItem from="1486596815810" duration="76030000" />
     </task>
     <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
       <created>1486088982949</created>
@@ -555,11 +553,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486753800628</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed loop issue, commands 1-3 work, need to add error checking on input">
+      <created>1486796101551</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1486796101551</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186458000" />
+    <option name="totallyTimeSpent" value="200574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -571,10 +576,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1284" height="1334" extended-state="0" />
+    <frame x="0" y="23" width="1288" height="1334" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18764846" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18705603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16398714" sideWeight="0.4970906" order="8" side_tool="false" content_ui="tabs" />
@@ -620,7 +625,8 @@
     <MESSAGE value="Finished, can sort by alpha and also sort numerical to complie&#10;gcc -o main.c main&#10;./main test.txt &gt; output-file.txt&#10;nano output-file.txt" />
     <MESSAGE value="Added hashtable code for openAddressing" />
     <MESSAGE value="Can create person, create relationship, search of person, and display person." />
-    <option name="LAST_COMMIT_MESSAGE" value="Can create person, create relationship, search of person, and display person." />
+    <MESSAGE value="Fixed loop issue, commands 1-3 work, need to add error checking on input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed loop issue, commands 1-3 work, need to add error checking on input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -916,18 +922,9 @@
           <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="129" />
+      <option name="time" value="172" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="searchCustomer[left]" />
-        <watch expression="searchCustomer[largest]" />
-        <watch expression="searchCustomer[right]" />
-        <watch expression="searchCustomer[largest]" />
-        <watch expression="customer[index]" />
-        <watch expression="customer[largest]" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/CMakeLists.txt">
@@ -1291,8 +1288,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/openAddressing.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
+        <state relative-caret-position="515">
+          <caret line="154" column="67" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
