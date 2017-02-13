@@ -35,28 +35,26 @@ int displayFriend(struct Record *table[]);
 int unFriendOperation(struct student rec, struct Record *table[]);
 void findPersonFriends(struct student rec, struct Record *table[]);
 void displaySpecificPersonFriends(struct Record *table[], int location, char[]);
-//void displayHashTable(struct Record *table[]);
-//int lookingForFriend(struct Record *table[]);
+void findMatch(struct Record *table[], int location);
 
 int main(int argc, const char *argv[]) {
     printf("This is openAdressing.c\n");
+
     char friendName[20] = "";
     char insertKeyName[20] = "";
     char personName[20] = "";
     char findTheirFriends[20] = "";
     char lookThroughFriends[20] = "";
     char matchFriend[20] = "";
-    char temp[] = "";
+    char temp[20] = "";
+
     int doesFindTheirFriendsExist = 0;
     int strFindTheirFriendsLength = 0;
     int asciiFindTheirFriendsTotal = 0;
     int friendCount = 0;
     int personCount = 0;
     int unFriendCount = 0;
-//    int friendLocationInArray = 0;
     int strlookThroughFriendsLength = 0;
-//    char findTheirFriends[20] = "";
-
 
     struct Record *table[TSIZE];
 
@@ -160,7 +158,6 @@ int main(int argc, const char *argv[]) {
                     printf("No relationship please build some\n");
                 }
                 break;
-                //TODO: When I press 4 and there are no friendships in the list it prompt to enter a name from the table(NEED TO FIX)
 
             case 4:
                 if(friendCount > 0) {
@@ -187,13 +184,13 @@ int main(int argc, const char *argv[]) {
                     printf("Enter a person name: ");
                     scanf("%s", lookThroughFriends);
                     strlookThroughFriendsLength = getTheLengthOfTheString(lookThroughFriends);
-                    printf("This is the findTheirFriends string lenght: %d\n", strFindTheirFriendsLength);
-                    printf("This is the findTheirFriends ascii total: %d\n", asciiFindTheirFriendsTotal);
 
                     printf("Enter enter their friends name: \n");
                     scanf("%s", matchFriend);
-                    int asciimMtchFriendTotal = getAsciiValueOfString(lookThroughFriends, strFindTheirFriendsLength);
+                    int asciimMtchFriendTotal = getAsciiValueOfString(lookThroughFriends, strlookThroughFriendsLength);
                     int findFriendLocationInArray = search(asciimMtchFriendTotal, table);
+                    //temp = table[findFriendLocationInArray]->info.friendName;
+                    printf("%s\n", temp);
                     strcpy(temp, table[findFriendLocationInArray]->info.friendName);
                     printf("This is the value of friendLocationINArray case 7: %d\n", findFriendLocationInArray);
                     printf("table[friend] = %s\n", temp);
@@ -209,6 +206,7 @@ int main(int argc, const char *argv[]) {
                     }
                     else {
                         printf("They are equal\n");
+                        printf("%s does have a friend name %s\n", lookThroughFriends, matchFriend);
                     }
 
                 } else {
@@ -220,6 +218,9 @@ int main(int argc, const char *argv[]) {
                 //return(0);
         }
     }
+}
+void findMatch(struct Record *table[], int location){
+
 }
 
 int unFriendOperation(struct student rec, struct Record *table[]){
@@ -456,7 +457,6 @@ int displayFriend(struct Record *table[]){
         }
     }
     return 0;
-
 }
 
 
