@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <dbg.h>
+#include <curses.h>
+#include <ctype.h>
 #include "heapsort.h"
 
 #define TSIZE 10
@@ -36,6 +38,7 @@ int unFriendOperation(struct student rec, struct Record *table[]);
 void findPersonFriends(struct student rec, struct Record *table[]);
 void displaySpecificPersonFriends(struct Record *table[], int location, char[]);
 void findMatch(struct Record *table[], int location);
+void checkIfCharacter(char userValue[]);
 
 int main(int argc, const char *argv[]) {
     printf("This is openAdressing.c\n");
@@ -66,162 +69,178 @@ int main(int argc, const char *argv[]) {
         table[i] = NULL;
     }
 
-    menu = 1;
-    while(menu){
+menu = 0;
+while(menu != 7){
 
-        printf("1. P ⟨name⟩ – Create a person record of the specified first name.\n");
-        printf("2. F ⟨name1⟩ ⟨name2⟩ — Record that the two specified people are friends.\n");
-        printf("3. U ⟨name1⟩ ⟨name2⟩ — Record that the two specified people are no longer friends.\n");
-        printf("4. L ⟨name⟩ — Print out the friends of the specified person\n");
-        printf("5. Q ⟨name1⟩ ⟨name2⟩ — Check whether the two people are friends\n");
-        printf("6. X – terminate the program\n");
+    printf("1. P ⟨name⟩ – Create a person record of the specified first name.\n");
+    printf("2. F ⟨name1⟩ ⟨name2⟩ — Record that the two specified people are friends.\n");
+    printf("3. U ⟨name1⟩ ⟨name2⟩ — Record that the two specified people are no longer friends.\n");
+    printf("4. L ⟨name⟩ — Print out the friends of the specified person\n");
+    printf("5. Q ⟨name1⟩ ⟨name2⟩ — Check whether the two people are friends\n");
+    printf("6. X – terminate the program\n");
 
-        printf("7. Exit\n\n");
+    printf("7. Exit\n\n");
 
-        printf("Enter your choice: \n");
-        scanf("%d", &choice);
+    printf("Enter your choice: \n");
+    scanf("%d", &choice);
 
-        switch(choice) {
-            case 1 :
-                // Please enter name to store in struct
-                printf("Please enter a name: ");
+    switch(choice) {
+    case 1 :
+        // Please enter name to store in struct
+        printf("Please enter a name: ");
 
-                // Read the value entered by use to struct data member
-                scanf("%s", rec.studentName);
+        // Read the value entered by use to struct data member
+        scanf("%s", rec.studentName);
+        
+        // Copy the string from the struct to variable
+        strcpy(insertKeyName, rec.studentName);
+        
+        //Check if the user entered a digit instead of a character
+        checkIfCharacter(insertKeyName);
 
-                // Copy the string from the struct to variable
-                strcpy(insertKeyName, rec.studentName);
+        // Get the length of the name entered by the user
+        int strInsertNameKeyLength = getTheLengthOfTheString(insertKeyName);
 
-                // Get the length of the name entered by the user
-                int strInsertNameKeyLength = getTheLengthOfTheString(insertKeyName);
+        // Print out the string length returned from the function
+        printf("%d\n", strInsertNameKeyLength);
 
-                // Print out the string length returned from the function
-                printf("%d\n", strInsertNameKeyLength);
+        // Get the total ascii value of the string
+        int strInsertNameKeyAsciiTotal = getAsciiValueOfString(insertKeyName, strInsertNameKeyLength);
 
-                // Get the total ascii value of the string
-                int strInsertNameKeyAsciiTotal = getAsciiValueOfString(insertKeyName, strInsertNameKeyLength);
+        // Print out the ascii value of the string
+        printf("%d AsciiTotal\n", strInsertNameKeyAsciiTotal);
 
-                // Print out the ascii value of the string
-                printf("%d AsciiTotal\n", strInsertNameKeyAsciiTotal);
-
-                // Insert data into the struct
-                personCount = insert(rec, table, strInsertNameKeyAsciiTotal, insertKeyName);
+        // Insert data into the struct
+        personCount = insert(rec, table, strInsertNameKeyAsciiTotal, insertKeyName);
+        break;
+    case 2 :
+        if(personCount > 0) {
+            display(table);
+            printf("Enter a name from the table: \n");
+            scanf("%s", personName);
+            int strPersonNameLength = getTheLengthOfTheString(personName);
+            int asciiPersonNameTotal = getAsciiValueOfString(personName, strPersonNameLength);
+            printf("This is the userName string lenght: %d\n", strPersonNameLength);
+            printf("This is the userName ascii total: %d\n", asciiPersonNameTotal);
+            int doesPersonNameExist = search(asciiPersonNameTotal, table);
+            if (doesPersonNameExist <= -1) {
+                printf("Key not found\n");
                 break;
-            case 2 :
-                if(personCount > 0) {
-                    display(table);
-                    printf("Enter a name from the table: \n");
-                    scanf("%s", personName);
-                    int strPersonNameLength = getTheLengthOfTheString(personName);
-                    int asciiPersonNameTotal = getAsciiValueOfString(personName, strPersonNameLength);
-                    printf("This is the userName string lenght: %d\n", strPersonNameLength);
-                    printf("This is the userName ascii total: %d\n", asciiPersonNameTotal);
-                    int doesPersonNameExist = search(asciiPersonNameTotal, table);
-                    if (doesPersonNameExist <= -1) {
-                        printf("Key not found\n");
-                        break;
-                    } else {
-                        printf("Person: %d %s\n", table[doesPersonNameExist]->info.studentId,
-                               table[doesPersonNameExist]->info.studentName);
-                    }
+            } else {
+                printf("Person: %d %s\n", table[doesPersonNameExist]->info.studentId,
+                       table[doesPersonNameExist]->info.studentName);
+            }
 
-                    printf("Enter a name from the table you would like to be friends with: \n");
-                    scanf("%s", friendName);
-                    int strfriendNameLength = getTheLengthOfTheString(friendName);
-                    int asciifriendNameTotal = getAsciiValueOfString(friendName, strfriendNameLength);
-                    printf("This is the friendName: %d\n", strfriendNameLength);
-                    printf("This is the friendName ascii total: %d\n", asciifriendNameTotal);
+            printf("Enter a name from the table you would like to be friends with: \n");
+            scanf("%s", friendName);
+            int strfriendNameLength = getTheLengthOfTheString(friendName);
+            int asciifriendNameTotal = getAsciiValueOfString(friendName, strfriendNameLength);
+            printf("This is the friendName: %d\n", strfriendNameLength);
+            printf("This is the friendName ascii total: %d\n", asciifriendNameTotal);
 
 
-                    int doesFriendNameExist = search(asciifriendNameTotal, table);
+            int doesFriendNameExist = search(asciifriendNameTotal, table);
 
-                    if (doesFriendNameExist <= -1) {
-                        printf("Key not found\n");
-                        break;
-                    } else {
-                        printf("Person: %d %s\n", table[doesFriendNameExist]->info.studentId,
-                               table[doesFriendNameExist]->info.studentName);
-                    }
-                    friendCount = addFriend(rec, table, doesPersonNameExist, friendName);
-                } else {
-                    printf("Please create a person, no pepople to connect\n");
-                }
+            if (doesFriendNameExist <= -1) {
+                printf("Key not found\n");
                 break;
-            case 3 :
-                if(friendCount > 0){
-                    printf("FriendCount %d > 0\n", friendCount);
-                    unFriendCount = unFriendOperation(rec, table);
-                    friendCount = friendCount - unFriendCount;
-                    printf("%d friend Count\n", friendCount);
-                    break;
-                } else{
-                    printf("No relationship please build some\n");
-                }
-                break;
-
-            case 4:
-                if(friendCount > 0) {
-                    printf("Please enter a name to find their friends: \n");
-                    scanf("%s", findTheirFriends);
-                    strFindTheirFriendsLength = getTheLengthOfTheString(findTheirFriends);
-                    asciiFindTheirFriendsTotal = getAsciiValueOfString(findTheirFriends, strFindTheirFriendsLength);
-                    printf("This is the findTheirFriends string lenght: %d\n", strFindTheirFriendsLength);
-                    printf("This is the findTheirFriends ascii total: %d\n", asciiFindTheirFriendsTotal);
-                    doesFindTheirFriendsExist = search(asciiFindTheirFriendsTotal, table);
-                    displaySpecificPersonFriends(table, doesFindTheirFriendsExist, findTheirFriends);
-                } else {
-                    printf("No friendship to list, please build some\n");
-                }
-                break;
-            case 5:
-                displayFriend(table);
-            case 6:
-                display(table);
-                break;
-            case 7:
-
-                if(friendCount > 0) {
-                    printf("Enter a person name: ");
-                    scanf("%s", lookThroughFriends);
-                    strlookThroughFriendsLength = getTheLengthOfTheString(lookThroughFriends);
-
-                    printf("Enter enter their friends name: \n");
-                    scanf("%s", matchFriend);
-                    int asciimMtchFriendTotal = getAsciiValueOfString(lookThroughFriends, strlookThroughFriendsLength);
-                    int findFriendLocationInArray = search(asciimMtchFriendTotal, table);
-                    //temp = table[findFriendLocationInArray]->info.friendName;
-                    printf("%s\n", temp);
-                    strcpy(temp, table[findFriendLocationInArray]->info.friendName);
-                    printf("This is the value of friendLocationINArray case 7: %d\n", findFriendLocationInArray);
-                    printf("table[friend] = %s\n", temp);
-                    printf("matchName = %s\n", matchFriend);
-                    int v = strcmp(temp, matchFriend);
-                    printf("The is the value from the stncmp function %d\n", v);
-
-                    if(v < 0){
-                        printf("%s does not have a friend named %s\n", lookThroughFriends, matchFriend);
-                    }
-                    else if(v > 0) {
-                        printf("%s does not have a friend named %s\n", lookThroughFriends, matchFriend);
-                    }
-                    else {
-                        printf("They are equal\n");
-                        printf("%s does have a friend name %s\n", lookThroughFriends, matchFriend);
-                    }
-
-                } else {
-                    printf("No friendship\n");
-                }
-                break;
-            default:
-                printf("Invalid selection\n");
-                //return(0);
+            } else {
+                printf("Person: %d %s\n", table[doesFriendNameExist]->info.studentId,
+                       table[doesFriendNameExist]->info.studentName);
+            }
+            friendCount = addFriend(rec, table, doesPersonNameExist, friendName);
+        } else {
+            printf("Please create a person, no pepople to connect\n");
         }
-    }
-}
-void findMatch(struct Record *table[], int location){
+        break;
+    case 3 :
+        if(friendCount > 0){
+            printf("FriendCount %d > 0\n", friendCount);
+            unFriendCount = unFriendOperation(rec, table);
+            friendCount = friendCount - unFriendCount;
+            printf("%d friend Count\n", friendCount);
+            break;
+        } else{
+            printf("No relationship please build some\n");
+        }
+        break;
 
+    case 4:
+        if(friendCount > 0) {
+            printf("Please enter a name to find their friends: \n");
+            scanf("%s", findTheirFriends);
+            strFindTheirFriendsLength = getTheLengthOfTheString(findTheirFriends);
+            asciiFindTheirFriendsTotal = getAsciiValueOfString(findTheirFriends, strFindTheirFriendsLength);
+            printf("This is the findTheirFriends string lenght: %d\n", strFindTheirFriendsLength);
+            printf("This is the findTheirFriends ascii total: %d\n", asciiFindTheirFriendsTotal);
+            doesFindTheirFriendsExist = search(asciiFindTheirFriendsTotal, table);
+            displaySpecificPersonFriends(table, doesFindTheirFriendsExist, findTheirFriends);
+        } else {
+            printf("No friendship to list, please build some\n");
+        }
+        break;
+    case 5:
+        displayFriend(table);
+    case 6:
+        display(table);
+        break;
+    case 7:
+
+        if(friendCount > 0) {
+            printf("Enter a person name: ");
+            scanf("%s", lookThroughFriends);
+            strlookThroughFriendsLength = getTheLengthOfTheString(lookThroughFriends);
+            
+
+            printf("Enter enter their friends name: \n");
+            scanf("%s", matchFriend);
+            int asciimMtchFriendTotal = getAsciiValueOfString(lookThroughFriends, strlookThroughFriendsLength);
+            int findFriendLocationInArray = search(asciimMtchFriendTotal, table);
+            //temp = table[findFriendLocationInArray]->info.friendName;
+            printf("%s\n", temp);
+            strcpy(temp, table[findFriendLocationInArray]->info.friendName);
+            printf("This is the value of friendLocationINArray case 7: %d\n", findFriendLocationInArray);
+            printf("table[friend] = %s\n", temp);
+            printf("matchName = %s\n", matchFriend);
+            int v = strcmp(temp, matchFriend);
+            printf("The is the value from the stncmp function %d\n", v);
+
+            if(v < 0){
+                printf("%s does not have a friend named %s\n", lookThroughFriends, matchFriend);
+            }
+            else if(v > 0) {
+                printf("%s does not have a friend named %s\n", lookThroughFriends, matchFriend);
+            }
+            else {
+                printf("They are equal\n");
+                printf("%s does have a friend name %s\n", lookThroughFriends, matchFriend);
+
+            }
+
+        } else {
+            printf("No friendship\n");
+        }
+        break;
+    default:
+        printf("Invalid selection\n");
+    }
+
+    // This catches the char and re displays the menu if a char is entered
+    (void)getchar();
 }
+}
+
+void checkIfCharacter(char userValue[]){
+    int alpha = isalpha(*userValue);
+    if(alpha){
+        printf("It is a character");
+    } else {
+        printf("You entered a number\n");
+    }
+    return;
+    
+}
+
 
 int unFriendOperation(struct student rec, struct Record *table[]){
     char unlinkFriend[20] = "";
@@ -272,7 +291,9 @@ int unFriendOperation(struct student rec, struct Record *table[]){
     }
     unFriendCount = unFriend(rec, table, unLinkFriendExist, unFriendName);
     return unFriendCount;
+    
 }
+
 int unFriend(struct student rec, struct Record *table[], int unFriendLocation, char unFriendName[]){
     char empty[] = "";
     int count = 0;
@@ -409,8 +430,6 @@ int addFriend(struct student rec, struct Record *table[], int doesPersonNameExis
     }
     return friendCount;
 }
-
-
 
 void display(struct Record *table[]) {
     int i;

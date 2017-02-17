@@ -42,6 +42,7 @@ include_directories(${INCLUDE_DATA_STRUCTURE})
 # Sets the program sources
 set(testProject_SOURCES
     #../src/main.c
+        #../src/test.c
     #../src/insertionsort.c
     #../src/selectionsort.c
     #../src/gettinginput.c
