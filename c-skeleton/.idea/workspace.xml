@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03e08acc-f06c-43b8-893d-d86349dfa4db" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/c-skeleton.iml" afterPath="$PROJECT_DIR$/.idea/c-skeleton.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/openAddressing.c" afterPath="$PROJECT_DIR$/src/openAddressing.c" />
     </list>
@@ -50,8 +49,8 @@
       <file leaf-file-name="openAddressing.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/openAddressing.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+            <state relative-caret-position="180">
+              <caret line="450" column="0" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -107,8 +106,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="72" />
     <option name="y" value="23" />
-    <option name="width" value="1271" />
+    <option name="width" value="1148" />
     <option name="height" value="717" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -469,7 +469,8 @@
       <workItem from="1487135929999" duration="561000" />
       <workItem from="1487220544282" duration="17000" />
       <workItem from="1487300980452" duration="4792000" />
-      <workItem from="1487359007191" duration="1368000" />
+      <workItem from="1487359007191" duration="1686000" />
+      <workItem from="1487534123038" duration="12945000" />
     </task>
     <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
       <created>1486088982949</created>
@@ -611,11 +612,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486957404416</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Error checking for character when the user presses 1, if the user enters anything beside a 1 it will post an error and redisplay the menu.  If the user enters a 1 they will be prompted to enter a user name, if the user name start with a numeric value the program will show error and redisplay the menu.">
+      <created>1487360507560</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1487360507560</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220228000" />
+    <option name="totallyTimeSpent" value="233491000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -627,16 +635,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1271" height="717" extended-state="6" />
+    <frame x="72" y="23" width="1148" height="717" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1888277" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20905924" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16358025" sideWeight="0.4970906" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.575804" sideWeight="0.4970906" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16398714" sideWeight="0.50332224" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40432099" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4027778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32877815" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -680,7 +688,8 @@
     <MESSAGE value="Commands on Menu 1-4 work need to work on 5 and also terminate, work on TODO" />
     <MESSAGE value="added logic for when a friendship is deleted, Example if a friendship is created between two people and then deleted.  When you press option 3, you will be prompted to create a friendship because there are not friendships listed in the hashtable." />
     <MESSAGE value="Options 1-5 work need to account for errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Options 1-5 work need to account for errors" />
+    <MESSAGE value="Error checking for character when the user presses 1, if the user enters anything beside a 1 it will post an error and redisplay the menu.  If the user enters a 1 they will be prompted to enter a user name, if the user name start with a numeric value the program will show error and redisplay the menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Error checking for character when the user presses 1, if the user enters anything beside a 1 it will post an error and redisplay the menu.  If the user enters a 1 they will be prompted to enter a user name, if the user name start with a numeric value the program will show error and redisplay the menu." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1315,8 +1324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/openAddressing.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+        <state relative-caret-position="180">
+          <caret line="450" column="0" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

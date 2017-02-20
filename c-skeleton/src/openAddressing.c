@@ -7,38 +7,49 @@
 
 #define TSIZE 10
 
-enum  type_of_record {EMPTY, PERSON, DELETED, OCCUPIED, FRIEND};
+enum  status {PERSON, FRIEND};
 
-// Stores records of students
-struct student{
-    int studentId;
-    char studentName[20];
+// Stores records of Person
+struct Person{
+    int personId;
+    char personName[20];
     char friendName[20];
 };
 
-// Information about the student and status
-struct Record{
-    struct student info;
-    enum type_of_record status;
-    struct Record *link;
+// Information about the Person and status
+struct HashTable{
+    struct Person info;
+    enum status status;
+    struct HashTable *link;
+};
+
+// Information about the Person friends
+struct HashTableFriend{
+    struct HashTable *hashTableInfo;
+    char personNameWithFriend[20];
+    char personFriendName[20];
+    struct HashTableFriend *HashLink;
 };
 
 // Function prototype
-int insert(struct student rec, struct Record *table[], int, char[]);
-int search(int key, struct Record *table[]);
+int insert(struct Person rec, struct HashTable *table[], int, char[]);
+int search(int key, struct HashTable *table[]);
 //void del(int key, struct Record table[]);
-void display(struct Record *table[]);
+void display(struct HashTable *table[]);
 int hash(int);
-int unFriend(struct student rec, struct Record *table[], int, char[]);
-int addFriend(struct student rec, struct Record *table[], int doesPersonNameExist, char personName[]);
+int unFriend(struct Person rec, struct HashTable *table[], int, char[]);
+int addFriend(struct Person rec, struct HashTable *table[], struct HashTableFriend *hashTableFriend[], int doesPersonNameExist, char personName[]);
 int getAsciiValueOfString(char name[], int strLength);
 int getTheLengthOfTheString(char name[]);
-int displayFriend(struct Record *table[]);
-int unFriendOperation(struct student rec, struct Record *table[]);
-void findPersonFriends(struct student rec, struct Record *table[]);
-void displaySpecificPersonFriends(struct Record *table[], int location, char[]);
-void findMatch(struct Record *table[], int location);
+int displayFriend(struct HashTable *table[]);
+int unFriendOperation(struct Person rec, struct HashTable *table[]);
+void findPersonFriends(struct Person rec, struct HashTable *table[]);
+void displaySpecificPersonFriends(struct HashTable *table[], int location, char[]);
+void findMatch(struct HashTable *table[], int location);
 int checkIfCharacter(char userValue[]);
+int displayStructFriend(struct HashTableFriend *table[]);
+void displaySpecificPersonFriendsHashTable(struct HashTableFriend *table[], int location, char showFriends[]);
+
 
 int main(int argc, const char *argv[]) {
     printf("This is openAdressing.c\n");
@@ -59,14 +70,21 @@ int main(int argc, const char *argv[]) {
     int unFriendCount = 0;
     int strlookThroughFriendsLength = 0;
 
-    struct Record *table[TSIZE];
+    struct HashTable *table[TSIZE];
 
-    struct student rec;
+    struct HashTableFriend *hashTableFriend[TSIZE];
+
+    struct Person rec;
 
     int i, choice, menu;
 
     for (i = 0; i <= TSIZE - 1; i++) {
         table[i] = NULL;
+    }
+
+    for (int j = 0; j <= TSIZE - 1 ; j++) {
+
+        hashTableFriend[i] = NULL;
     }
 
     menu = 0;
@@ -90,15 +108,16 @@ int main(int argc, const char *argv[]) {
                 printf("Please enter a name: ");
 
                 // Read the value entered by use to struct data member
-                scanf("%s", rec.studentName);
+                scanf("%s", rec.personName);
 
                 // Copy the string from the struct to variable
-                strcpy(insertKeyName, rec.studentName);
+                strcpy(insertKeyName, rec.personName);
 
                 //Check if the user entered a digit instead of a character
                 int checkValueOfCharacter = checkIfCharacter(insertKeyName);
 
                 if (checkValueOfCharacter == 1) {
+
                     // Get the length of the name entered by the user
                     int strInsertNameKeyLength = getTheLengthOfTheString(insertKeyName);
 
@@ -134,8 +153,8 @@ int main(int argc, const char *argv[]) {
                         printf("Key not found\n");
                         break;
                     } else {
-                        printf("Person: %d %s\n", table[doesPersonNameExist]->info.studentId,
-                               table[doesPersonNameExist]->info.studentName);
+                        printf("Person: %d %s\n", table[doesPersonNameExist]->info.personId,
+                               table[doesPersonNameExist]->info.personName);
                     }
 
                     printf("Enter a name from the table you would like to be friends with: \n");
@@ -152,10 +171,10 @@ int main(int argc, const char *argv[]) {
                         printf("Key not found\n");
                         break;
                     } else {
-                        printf("Person: %d %s\n", table[doesFriendNameExist]->info.studentId,
-                               table[doesFriendNameExist]->info.studentName);
+                        printf("Person: %d %s\n", table[doesFriendNameExist]->info.personId,
+                               table[doesFriendNameExist]->info.personName);
                     }
-                    friendCount = addFriend(rec, table, doesPersonNameExist, friendName);
+                    friendCount = addFriend(rec, table, hashTableFriend, doesPersonNameExist, friendName);
                 } else {
                     printf("Please create a person, no pepople to connect\n");
                 }
@@ -182,6 +201,7 @@ int main(int argc, const char *argv[]) {
                     printf("This is the findTheirFriends ascii total: %d\n", asciiFindTheirFriendsTotal);
                     doesFindTheirFriendsExist = search(asciiFindTheirFriendsTotal, table);
                     displaySpecificPersonFriends(table, doesFindTheirFriendsExist, findTheirFriends);
+                    //displaySpecificPersonFriendsHashTable(hashTableFriend, doesFindTheirFriendsExist, findTheirFriends);
                 } else {
                     printf("No friendship to list, please build some\n");
                 }
@@ -226,13 +246,17 @@ int main(int argc, const char *argv[]) {
                     printf("No friendship\n");
                 }
                 break;
+
+            case 8:
+                displayStructFriend(hashTableFriend);
+                break;
             default:
                 printf("Invalid selection\n");
         }
 
         // This catches the char and re displays the menu if a char is entered
         (void) getchar();
-    } while(menu != 7);
+    } while(menu != 9);
 }
 
 
@@ -248,7 +272,7 @@ int checkIfCharacter(char userValue[]){
 }
 
 
-int unFriendOperation(struct student rec, struct Record *table[]){
+int unFriendOperation(struct Person rec, struct HashTable *table[]){
     char unlinkFriend[20] = "";
     char unFriendName[20] = "";
     int unlinkDeletedNameLength = 0;
@@ -272,7 +296,7 @@ int unFriendOperation(struct student rec, struct Record *table[]){
         printf("Key not found\n");
         return -1;
     } else {
-        printf("Person: %s\n", table[unLinkFriendExist]->info.studentName);
+        printf("Person: %s\n", table[unLinkFriendExist]->info.personName);
     }
 
     displayFriend(table);
@@ -300,16 +324,16 @@ int unFriendOperation(struct student rec, struct Record *table[]){
     
 }
 
-int unFriend(struct student rec, struct Record *table[], int unFriendLocation, char unFriendName[]){
+int unFriend(struct Person rec, struct HashTable *table[], int unFriendLocation, char unFriendName[]){
     char empty[] = "";
     int count = 0;
 
-    printf("Perform unFriending Operation with: %s\n", table[unFriendLocation]->info.studentName);
+    printf("Perform unFriending Operation with: %s\n", table[unFriendLocation]->info.personName);
     printf("No longer what to be friend with: %s\n", unFriendName);
-    printf("StudentId %d\n", table[unFriendLocation]->info.studentId);
+    printf("StudentId %d\n", table[unFriendLocation]->info.personId);
     printf("This should equal StudentId: %d\n", unFriendLocation);
 
-    if(table[unFriendLocation]->info.studentId == unFriendLocation){
+    if(table[unFriendLocation]->info.personId == unFriendLocation){
         strcpy(table[unFriendLocation]->info.friendName, empty);
         table[unFriendLocation]->status = PERSON;
         count++;
@@ -353,11 +377,11 @@ int hash(int key){
     return (key%TSIZE);
 }
 
-int insert(struct student rec, struct Record *table[], int keyAsciiValue, char name[]){
+int insert(struct Person rec, struct HashTable *table[], int keyAsciiValue, char name[]){
     int location, h, i;
     int personCount = 0;
 
-    struct Record *temp;
+    struct HashTable *temp;
 
     printf("%d This is the keyAsciiValue\n", keyAsciiValue);
     printf("%s This is the name\n", name);
@@ -378,10 +402,10 @@ int insert(struct student rec, struct Record *table[], int keyAsciiValue, char n
 
         // If the table location is Empty of Deleted change the status of that location and add data
         if (table[location] == NULL) {
-            temp = (struct Record *) malloc(sizeof(struct Record));
+            temp = (struct HashTable *) malloc(sizeof(struct HashTable));
             temp->info = rec;
             temp->status = PERSON;
-            temp->info.studentId = location;
+            temp->info.personId = location;
             temp->link = table[location];
             table[location] = temp;
             printf("Record inserted\n\n");
@@ -390,7 +414,7 @@ int insert(struct student rec, struct Record *table[], int keyAsciiValue, char n
         }
 
         // If the key is a duplicate, show message and generate a new hash value
-        if (table[location]->info.studentId == h) {
+        if (table[location]->info.personId == h) {
             printf("This is a duplicate key\n");
             printf("Generating new hash value\n");
         }
@@ -400,7 +424,7 @@ int insert(struct student rec, struct Record *table[], int keyAsciiValue, char n
 
 }
 
-int search(int key, struct Record *table[]) {
+int search(int key, struct HashTable *table[]) {
     //int i
     int h, location;
     h = hash(key);
@@ -408,11 +432,11 @@ int search(int key, struct Record *table[]) {
     location = h;
     printf("This is the location value: %d\n", location);
 
-    struct Record *p = table[h];
+    struct HashTable *p = table[h];
 
     while (p != NULL) {
-        if (p->info.studentId == location) {
-            printf("Inside the if statement struct value %d |h value %d\n", p->info.studentId, location);
+        if (p->info.personId == location) {
+            printf("Inside the if statement struct value %d |h value %d\n", p->info.personId, location);
             return location;
         }
         p = p->link;
@@ -421,31 +445,50 @@ int search(int key, struct Record *table[]) {
 }
 
 
-int addFriend(struct student rec, struct Record *table[], int doesPersonNameExist, char friendName[]){
+int addFriend(struct Person rec, struct HashTable *table[], struct HashTableFriend *hashTableFriend[], int doesPersonNameExist, char friendName[]){
+
+    struct HashTableFriend *temp;
 
     int friendCount = 0;
-    printf("Requesting Friendship: %s\n", table[doesPersonNameExist]->info.studentName);
+    printf("Requesting Friendship: %s\n", table[doesPersonNameExist]->info.personName);
     printf("Receiving Friendship: %s\n", friendName);
-    printf("StudentId %d\n", table[doesPersonNameExist]->info.studentId);
+    printf("StudentId %d\n", table[doesPersonNameExist]->info.personId);
     printf("This should equal StudentId: %d\n", doesPersonNameExist);
 
-    if(table[doesPersonNameExist]->info.studentId == doesPersonNameExist){
-        strcpy(table[doesPersonNameExist]->info.friendName, friendName);
-        table[doesPersonNameExist]->status = FRIEND;
+    // Check to see if the person exists at the location within the hashtable
+    if(table[doesPersonNameExist]->info.personId == doesPersonNameExist){
+
+        printf("The above information should be stored in the HashTableFriend\n");
+        temp = (struct HashTableFriend *) malloc(sizeof(struct HashTableFriend));
+
+        // Store the location of the record within the HashTable to HashTable Friend
+        temp->hashTableInfo = table[doesPersonNameExist];
+
+        // Copy the friend name to the HashTableFriend
+        strcpy(temp->personNameWithFriend, table[doesPersonNameExist]->info.personName);
+
+        // Copy the friend who you want to becomes friends with to the hasttableFriend
+        strcpy(temp->personFriendName, friendName);
+
+        temp->HashLink = hashTableFriend[doesPersonNameExist];
+        hashTableFriend[doesPersonNameExist] = temp;
+
         friendCount++;
+        return friendCount;
     }
     return friendCount;
+
 }
 
-void display(struct Record *table[]) {
+void display(struct HashTable *table[]) {
     int i;
-    struct Record *p;
+    struct HashTable *p;
     for (i = 0; i < TSIZE; i++) {
         //printf("[%i] : ", i);
         if (table[i] != NULL) {
             p = table[i];
             while (p != NULL) {
-                printf("%3d %3s %3s\n", p->info.studentId, p->info.studentName, p->info.friendName);
+                printf("%3d %3s %3s\n", p->info.personId, p->info.personName, p->info.friendName);
                 p = p->link;
             }
         }
@@ -453,30 +496,61 @@ void display(struct Record *table[]) {
     printf("\n");
 }
 
-void displaySpecificPersonFriends(struct Record *table[], int location, char showFriends[]){
+void displaySpecificPersonFriendsHashTable(struct HashTableFriend *table[], int location, char showFriends[]){
 
-    printf("Perform unFriending Operation with: %s\n", table[location]->info.studentName);
+    printf("Perform unFriending Operation with: %s\n", table[location]->personNameWithFriend);
     printf("No longer what to be friend with: %d\n", location);
-    printf("StudentId %d\n", table[location]->info.studentId);
+    printf("StudentId %d\n", table[location]->hashTableInfo->info.personId);
     printf("This should equal StudentId: %d\n", location);
 
-    if(table[location]->info.studentId == location){
+    if(table[location]->hashTableInfo->info.personId == location){
+        printf("%s is friends with %s\n", showFriends, table[location]->personFriendName);
+    }
+
+}
+
+void displaySpecificPersonFriends(struct HashTable *table[], int location, char showFriends[]){
+
+    printf("Perform unFriending Operation with: %s\n", table[location]->info.personName);
+    printf("No longer what to be friend with: %d\n", location);
+    printf("StudentId %d\n", table[location]->info.personId);
+    printf("This should equal StudentId: %d\n", location);
+
+    if(table[location]->info.personId == location){
         printf("%s is friends with %s\n", showFriends, table[location]->info.friendName);
     }
 
 }
 
-int displayFriend(struct Record *table[]){
+int displayFriend(struct HashTable *table[]){
     int i;
     int count = 0;
-    struct Record *p;
+    struct HashTable *p;
     for(i = 0; i < TSIZE; i++){
         if(table[i] != NULL && table[i]->status == FRIEND){
             p = table[i];
             while (p != NULL){
-                printf("%s %s\n", p->info.studentName, p->info.friendName);
+                printf("%s %s\n", p->info.personName, p->info.friendName);
                 count++;
                 p = p->link;
+            }
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int displayStructFriend(struct HashTableFriend *table[]){
+    int i;
+    int count = 0;
+    struct HashTableFriend *p;
+    for(i = 0; i < TSIZE; i++){
+        if(table[i] != NULL){
+            p = table[i];
+            while (p != NULL){
+                printf("%s %s\n", p->personNameWithFriend, p->personFriendName);
+                count++;
+                p = p->HashLink;
             }
             return 1;
         }
