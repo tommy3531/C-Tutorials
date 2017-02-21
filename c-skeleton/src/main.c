@@ -1,98 +1,188 @@
 #include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/dbg.h"
-#include "../include/facttail.h"
-#include "sorting/selectionsort.h"
-#include "sorting/insertionsort.h"
-#include "../include/binarysearch.h"
-#define MAXNUMBERS 10
+#include <string.h>
+//#include <openAddressing.h>
+//#include "../include/openAddressing.h"
+#define TSIZE 10
 
-struct stuff
-{
-	int val;
-	float b;
+enum  status {EMPTY, PERSON, FRIEND};
+
+typedef struct person Person;
+typedef struct hashtable HashTable;
+typedef struct hashtable HashTableFriend;
+
+struct person {
+    int personId;
+    char *personName;
+    char *friendName;
 };
+
+// Information about the Person and status
+struct hashtable{
+    Person *info;
+    enum status status;
+    HashTable *link;
+};
+
+// Information about the Person friends
+struct hashtablefriend{
+    HashTable hashTableInfo;
+    char *personNameWithFriend;
+    char *personFriendName[20];
+    HashTableFriend *HashLink;
+};
+
+HashTable *mainHashTable[TSIZE];
+
+void displayHash(HashTable *[]);
+Person *CreatePersonObject(int personId, char *personName, char *personFriendName);
+HashTable *CreateHashTableObject();
+void insert();
+int hash(int);
+
 
 int main(int argc, const char *argv[])
 {
-	// Delcare a new struct of stuff
-	// Delcare a variable s of type struct stuff
-	// struct stuff s;
-	
-	// give the struct items values
-//	s.val = 34;
-//	s.b = 3.14;
-	
-	// print the values
-//	printf("The val field is: %d\n", s.val);
-//	printf("The b field is: %f\n", s.b);
-//	int value = facttail(4, 1);
-//	printf("This is the value from facttail: %d\n", value);
+    // Print message start building person
+    printf("Starting to build a person: \n");
+	Person *newP = CreatePersonObject(1, "Tom", "Tim");
+    printf("This is the personId: %d\n", newP->personId);
+    printf("This is the personName: %s\n", newP->personName);
+    printf("This is the personFriend: %s\n", newP->friendName);
+    
 
-	//void selectionSort(int[], int, int);
-	//int num[MAXNUMBERS];
-	//printf("Type up to %d number followed by 0\n", MAXNUMBERS);
-	//int n = 0;
-	//int v = 0;
-	//scanf("%d", &v);
-	//while(v != 0 && n < MAXNUMBERS)
-	//{
-	//	num[n++] = v;
-	//	scanf("%d", &v);
-	//}
-	//if (v != 0) 
-	//{
-          //    printf("More than %d numbers entered\n", MAXNUMBERS);
-            //  printf("First %d used\n", MAXNUMBERS);
-        //}
+    // Starting to build the hashTable
+    printf("Starting to build the hashtable\n");
+    CreateHashTableObject();
 
-	//n numbers are stored from num[0] to num[n-1]
-	//selectionSort(num, 0, n-1);
-	//printf("\nThe sorted numbers are\n");
-	//for (int h = 0; h < n; h++) 
-	//{
-	//	printf("%d ", num[h]);
-	//}
-	//printf("\n");
+    displayHash(mainHashTable);
 
-//	void insertionSort(int [], int);
-	int num[MAXNUMBERS];
-	printf("Type up to %d number followed by 0\n", MAXNUMBERS);
-	int n = 0;
-	int v = 0;
-	scanf("%d", &v);
-	while (v != 0 && n < MAXNUMBERS) 
-	{
-              num[n++] = v;
-              scanf("%d", &v);
+}
+
+void addPerson(Person addPersonElement, HashTable *mainHashTable[], int personNameAsciiValue){
+    
+    //Person person;
+    int location, h, i;
+//    int personCount = 0;
+    
+    //HashTable *temp;
+    
+    printf("%d This is the keyAsciiValue\n", personNameAsciiValue);
+    
+    // Call hash and pass the key to generate a hashvalue
+    h = hash(personNameAsciiValue);
+    
+    // Print out the hashValue
+    printf("This is the hash value: %d\n", h);
+    
+    // The hash value is the location within the array
+    location = h;
+    
+    // Print out the location within the array
+    printf("This is the location within the array: %d\n", location);
+    
+    for(i = 1; i < TSIZE; i++) {
+    
+        // Malloc space for char
+        addPersonElement.personName = (char *) malloc(strlen(addPersonElement.personName) + 1);
+    
+        addPersonElement.friendName = (char *) malloc(strlen(addPersonElement.friendName) + 1);
+    }
+}
+
+Person *CreatePersonObject(int personId, char *personName, char *personFriendName){
+    
+    Person *person;
+    // Malloc Space for person
+    person = (Person *)malloc(sizeof(Person));
+    
+    // Check if person struct is null if so throw error
+    if(person == NULL){
+        printf("No memory\n");
+        return NULL;
+    }
+    
+    // Hash Value is the personID
+    person->personId = personId;
+    
+    // Malloc space for char
+    person->personName = (char *)malloc(strlen(personName)+1);
+    
+    person->friendName = (char *)malloc(strlen(personFriendName)+1);
+    
+    // Add that string to the struct data member
+    memcpy(person->personName, personName, strlen(personName)+1);
+    
+    memcpy(person->friendName, personFriendName, strlen(personFriendName)+1);
+    
+    
+    return person;
+}
+    
+int hash(int key){
+    return (key%TSIZE);
+}
+
+// This create an HashTable Object for a specific Person
+// I think of this function as a student Record and it must be interested into an of Hash
+HashTable *CreateHashTableObject(){
+
+    // Malloc space for the hastTable
+    HashTable *hashTable;
+    hashTable = malloc(sizeof(HashTable));
+    
+    // Check if hashtable struct is null if so throw error
+    if(hashTable == NULL){
+        printf("No memory\n");
+        return NULL;
+    }
+    
+    hashTable->info = NULL;
+    hashTable->status = EMPTY;
+    hashTable->link = NULL;
+    return hashTable;
+    
+}
+int getTheLengthOfTheString(char name[]){
+    
+    // Int variable to hold the string length
+    int strLength = 0;
+    
+    // Using strlen to get the length of the character
+    strLength = strlen(name);
+    
+    // return the length
+    return strLength;
+}
+int getAsciiValueOfString(char name[], int strLength){
+    
+    // Int variable to hold the running total of ascii values
+    int asciiTotal = 0;
+    
+    if(strLength != '\0'){
+        for (int j = 0; j < strLength; ++j) {
+            printf("%c -> %d\n", name[j], (int)name[j]);
+            asciiTotal += (int)name[j];
         }
-	if (v != 0) 
-	{
-		printf("More than %d numbers entered\n", MAXNUMBERS);
-		printf("First %d used\n", MAXNUMBERS);
-	}
-		//n numbers are stored from num[0] to num[n-1]
-	//	insertionSort(num, n);
-	//	printf("\nThe sorted numbers are\n");
-	//for (int h = 0; h < n; h++)
-	//{
-	//	 printf("%d ", num[h]);
-	//}
-	//printf("\n");	
-	int item = 3;
-	int ans = binarySearch(item, num, 0, 11);
-	if(ans == -1)
-	{
-		printf("%d not found\\n", item);
+    }
+    
+    // return the total
+    return asciiTotal;
+}
 
-	}
-	else
-	{
-		printf("%d found in location %d\n", item, ans);
-
-	}
-
-	
-
+void displayHash(HashTable *hashTable[]) {
+    
+    HashTable *hashTablePtr;
+    for(int i = 0; i < TSIZE; i++){
+        if(hashTable[i] != NULL){
+            hashTablePtr = hashTable[i];
+            while(hashTablePtr != NULL){
+                printf("%3d %3s %3s\n", hashTablePtr->info->personId, hashTablePtr->info->personName, hashTablePtr->info->friendName);
+                hashTablePtr = hashTablePtr->link;
+            }
+        }
+    }
+    
+    printf("\n");
 }

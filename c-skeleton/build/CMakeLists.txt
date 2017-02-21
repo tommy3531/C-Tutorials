@@ -41,7 +41,7 @@ include_directories(${INCLUDE_DATA_STRUCTURE})
 
 # Sets the program sources
 set(testProject_SOURCES
-    #../src/main.c
+    ../src/main.c
         #../src/test.c
     #../src/insertionsort.c
     #../src/selectionsort.c
@@ -50,7 +50,7 @@ set(testProject_SOURCES
     #../src/arrayoperations.c
     #../src/loopoperations.c
     #../src/heapsort.c
-        ../src/openAddressing.c
+     #   ../src/openAddressing.c
     #../src/bubblesort.c
     #../src/binarySearchTree.c
     #../src/yaml.c
@@ -64,7 +64,8 @@ set(testProject_SOURCES
     #../src/doublyLinkedList.c
     #../include/data/read.txt
     #../include/data/write.txt
-	../include/dbg.h)
+	#../include/dbg.h)
+        )
 
 # link the libraries to the executable
 
