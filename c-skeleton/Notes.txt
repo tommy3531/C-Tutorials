@@ -8,3 +8,18 @@ Chapter 2. Pointer Manipulation
 	5. Pointers to pointers
 	6. Generic pointers and casts
 	7. Function pointers
+
+struct person {
+    int personKey;
+    char *personName;
+    char *friendName;
+    enum status status;
+    Person *next;
+};
+
+struct hashtable{
+    Person *personLookUp;
+    int hashTableSize;
+    HashTable *link;
+};
+

@@ -21,7 +21,7 @@ set(INCLUDE_DOUBLY_LINKED_LIST ../include/doublyLinkedList)
 set(INCLUDE_STACK_LINKED_LIST ../include/stackLinkedList)
 set(INCLUDE_CONVERTER ../include/converter)
 set(INCLUDE_DATA_STRUCTURE ../include/dataStructure)
-
+set(INCLUDE_HASHTABLE ../include/HashTable)
 # Set link directories
 # yaml
 #link_directories(../link/libyaml-master)
@@ -38,10 +38,12 @@ include_directories(${INCLUDE_DOUBLY_LINKED_LIST})
 include_directories(${INCLUDE_STACK_LINKED_LIST})
 include_directories(${INCLUDE_CONVERTER})
 include_directories(${INCLUDE_DATA_STRUCTURE})
+include_directories(${INCLUDE_HASHTABLE})
+
 
 # Sets the program sources
 set(testProject_SOURCES
-    ../src/main.c
+        #../src/hashTableHwk1.c
         #../src/test.c
     #../src/insertionsort.c
     #../src/selectionsort.c
@@ -50,7 +52,7 @@ set(testProject_SOURCES
     #../src/arrayoperations.c
     #../src/loopoperations.c
     #../src/heapsort.c
-     #   ../src/openAddressing.c
+        #../src/openAddressing.c
     #../src/bubblesort.c
     #../src/binarySearchTree.c
     #../src/yaml.c
@@ -65,7 +67,7 @@ set(testProject_SOURCES
     #../include/data/read.txt
     #../include/data/write.txt
 	#../include/dbg.h)
-        )
+        ../src/hashTable.c)
 
 # link the libraries to the executable
 

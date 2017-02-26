@@ -5,8 +5,8 @@ enum  status {EMPTY, PERSON, FRIEND};
 // Stores records of Person
 struct Person{
     int personId;
-    char personName[20];
-    char friendName[20];
+    char *personName;
+    char *friendName;
 };
 
 // Information about the Person and status
@@ -31,7 +31,7 @@ int checkIfInt(int number);
 int insert(struct Person list, struct HashTable *table[], int, char[]);
 int search(int key, struct HashTable *table[]);
 //void del(int key, struct Record table[]);
-void display(struct HashTable *table);
+void display(struct HashTable *table[]);
 int hash(int);
 int unFriend(struct Person list, struct HashTable *table[], int, char[]);
 int addFriend(struct Person list, struct HashTable *table[], int doesPersonNameExist, char personName[]);
@@ -307,7 +307,7 @@ int addFriendToStruct(struct HashTable hashList, struct HashTable *table[], stru
     return friendCount;
 }
 
-void display(struct HashTable *table) {
+void display(struct HashTable *table[]) {
     int i;
     struct HashTable *p;
     for (i = 0; i < TSIZE; i++) {
