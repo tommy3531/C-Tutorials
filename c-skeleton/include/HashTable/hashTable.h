@@ -18,22 +18,12 @@ struct person {
     Person *nextPerson;
 };
 
-// Information about the Person and status
-struct hashobject{
-    Person *personLookUp;
-    int hashTableSize;
-    HashTableFriend *friendLink;
-    HashObject *nextHashObject;
-    HashTable *nextHashTable;
-};
-
 struct hashtable{
-    HashObject *hashObjectLookup;
+    Person *personLookUp;
     int numberOfFriendShip;
     int numberOfPeople;
     int numberOfEmpty;
     int numberOfSlots;
-    int numberOfHashPerson;
     HashTable *nextHashTable;
 };
 
@@ -67,10 +57,9 @@ void displayList(Person *personHead);
 Person *personHead = NULL;
 HashObject *personHashObjectHead = NULL;
 HashTable *mainHashTableHead = NULL;
-int hashObjectSize = 1;
-int hashTableSize = 1;
+int hashTableSize = 0;
 int numberOfPeople = 0;
-int numberOfHashPerson = 0;
+
 
 
 int hashFunction(int nameAsciiValue){
@@ -129,41 +118,6 @@ void displayList(Person *personHead) {
     printf("\n");
 }
 
-void displayListHashObject(HashObject *personHashObjectHead) {
-    
-    // Declare a new struct to store current position
-    HashObject *currentHashObject;
-    
-    // Check if the head pointer is null
-    if(personHashObjectHead == NULL)
-    {
-        // The list is empty
-        printf("The list is empty: \n");
-        return;
-    }
-    
-    printf("This is the HashObject List: \n");
-    
-    // Current node points to head
-    currentHashObject = personHashObjectHead;
-    
-    // Print out the values from the until you reach the end AKA NULL
-    while(currentHashObject != NULL)
-    {
-        // Print out the value
-        printf("This is the Hash Object->personLookUp: %p\n", currentHashObject->personLookUp);
-        printf("This is the Hash Object->personLookup->personKey: %d\n", currentHashObject->personLookUp->personKey);
-        printf("This is the Hash Object->personLookup->personName: %s\n", currentHashObject->personLookUp->personName);
-        printf("This is the Hash Object->link: %p \n", currentHashObject->nextHashObject);
-        printf("This is the Hash Object->friendlink: %p \n", currentHashObject->friendLink);
-        printf("This is the Hash Object->hashTableSize: %d \n\n", currentHashObject->hashTableSize);
-    
-        currentHashObject = currentHashObject->nextHashObject;
-    }
-    
-    printf("\n");
-}
-
 void displayListHashTable(HashTable *mainHashTableHead) {
     
     // Declare a new struct to store current position
@@ -182,30 +136,42 @@ void displayListHashTable(HashTable *mainHashTableHead) {
     // Current node points to head
     currentHashTable = mainHashTableHead;
     
+    /* TODO: Need to fix only prints out one record */
     // Print out the values from the until you reach the end AKA NULL
     while(currentHashTable != NULL)
     {
         // Print out the value
         printf("Printing information out from the HashTable\n");
-        printf("This is the Hash Table->hashObjectLookup: %p\n", currentHashTable->hashObjectLookup);
+        printf("This is the Hash Table->hashObjectLookup: %p\n", currentHashTable->personLookUp);
         printf("This is the Hash Table->nextHashTable: %p\n", currentHashTable->nextHashTable);
         printf("This is the Hash Table->numberOfFriendShip: %d \n", currentHashTable->numberOfFriendShip);
         printf("This is the Hash Table->numberOfEmpty: %d \n", currentHashTable->numberOfEmpty);
         printf("This is the Hash Table->numberOfPeople: %d \n", currentHashTable->numberOfPeople);
-        printf("This is the Hash Table->numberOfSlots: %d \n\n", currentHashTable->numberOfSlots);
-        
-        printf("Printing information currentHashTable->hashObjectLookup->personLookUp->\n");
-        printf("This is the currentHashtable->HashObjectLookUp->personLookup->personKey %d\n", currentHashTable->hashObjectLookup->personLookUp->personKey);
-        printf("This is the currentHashtable->HashObjectLookUp->personLookup->personName %s\n", currentHashTable->hashObjectLookup->personLookUp->personName);
-        printf("This is the currentHashtable->HashObjectLookUp->personLookup->personNameAsciiValue %d\n", currentHashTable->hashObjectLookup->personLookUp->personNameAsciiValue);
-        printf("This is the currentHashtable->HashObjectLookUp->personLookup->personNameLength %d\n", currentHashTable->hashObjectLookup->personLookUp->personNameLength);
-        printf("This is the currentHashtable->HashObjectLookUp->personLookup->status %d\n", currentHashTable->hashObjectLookup->personLookUp->status);
-        printf("This is the currentHashtable->HashObjectLookUp->personLookup->nextPerson %p\n\n", currentHashTable->hashObjectLookup->personLookUp->nextPerson);
+        printf("This is the Hash Table->numberOfSlots: %d \n", currentHashTable->numberOfSlots);
+    
     
         currentHashTable = currentHashTable->nextHashTable;
     }
     
     printf("\n");
+}
+
+void displayTableHash(HashTable *mainTable) {
+    printf("This is the displayTableHash Function\n\n");
+    
+    for(int i = 0; i < 10; i++) {
+        printf("[%d] This is the Person ID : %d\n", i, mainTable->personLookUp[i].personKey);
+        printf("This is the Person Name Length : %d\n", mainTable->personLookUp[i].personNameLength);
+        printf("This is the Person Name Asics Value : %d\n", mainTable->personLookUp[i].personNameAsciiValue);
+        printf("This is the Person Name : %s\n", mainTable->personLookUp[i].personName);
+        printf("This is the Person Friend : %s\n", mainTable->personLookUp[i].friendName);
+        printf("This is the Person Status : %d\n", mainTable->personLookUp[i].status);
+        printf("This is the HashTable numberOfEmpty : %d\n", mainTable->numberOfEmpty);
+        printf("This is the HashTable numberOfFriendShip : %d\n", mainTable->numberOfFriendShip);
+        printf("This is the HashTable numberOfPeople : %d\n", mainTable->numberOfPeople);
+        printf("This is the HashTable numberOfSlots : %d\n\n", mainTable->numberOfSlots);
+
+    }
 }
 
 // Need to create a person
@@ -250,40 +216,8 @@ Person *insertNameInBeginning(Person *personHead, Person *addPerson){
     return personHead;
 }
 
-HashObject *CreateHashPersonObject(Person *addPerson) {
-    
-    // Need a Hashtable to work with
-    HashObject *hashObject = NULL;
-    
-    // Need to allocate memory for the hashTable
-    hashObject = (HashObject *) malloc(sizeof(HashObject));
-    if (hashObject == NULL) {
-        printf("No memory\n");
-        return NULL;
-    }
-
-    
-    // Need to malloc space for the pointer
-    hashObject->personLookUp = (Person *)malloc(sizeof(Person));
-    hashObject->personLookUp = addPerson;
-    hashObject->hashTableSize = hashObjectSize;
-    hashObject->nextHashObject = NULL;
-    hashObject->nextHashTable = NULL;
-    hashObject->friendLink = 0;
-    hashObjectSize++;
-    numberOfHashPerson++;
-    return hashObject;
-}
-
-HashObject *insertPersonHashObjectAtBeginning(HashObject *personHashTableHead, HashObject *personHashObject){
-    
-    personHashObject->nextHashObject = personHashTableHead;
-    personHashTableHead = personHashObject;
-    return personHashTableHead;
-}
-
 // Create a hashtable based of the size the user wants
-HashTable *CreateHashTable(HashTable *mainHashTable, HashObject *personHashObjectHead) {
+HashTable *CreateHashTable(HashTable *mainHashTable) {
     
     // Need a Hashtable to work with
     HashTable *hashTable = NULL;
@@ -296,19 +230,93 @@ HashTable *CreateHashTable(HashTable *mainHashTable, HashObject *personHashObjec
     }
     
     // Need to malloc space for the pointer
-    hashTable->hashObjectLookup = malloc(sizeof(struct hashobject) * hashObjectSize);
-    hashTable->hashObjectLookup = personHashObjectHead;
-    // Initializing the hashTable values
+
+    hashTable->personLookUp = malloc(sizeof(Person));
     
-    hashTable->numberOfEmpty = numberOfPeople - hashTableSize;
-    hashTable->numberOfFriendShip = 0;
-    hashTable->numberOfPeople = numberOfPeople;
-    hashTable->numberOfSlots = hashTableSize;
-    hashTable->hashObjectLookup = personHashObjectHead;
-    hashTable->nextHashTable = mainHashTable;
-    mainHashTable = hashTable;
-    hashTableSize++;
+    for (int i = 0; i < 4; i++) {
     
+        // Create the hashTable Based off the NUmber of HashObjects
+        hashTable->personLookUp[i].personKey = 0;
+        hashTable->personLookUp[i].personName = "";
+        hashTable->personLookUp[i].friendName = "";
+        hashTable->personLookUp[i].personNameAsciiValue = 0;
+        hashTable->personLookUp[i].personNameLength = 0;
+        hashTable->personLookUp[i].nextPerson = NULL;
+        hashTable->personLookUp[i].status = EMPTY;
+        
+        hashTable->numberOfEmpty = 0;
+        hashTable->numberOfFriendShip = 0;
+        hashTable->numberOfPeople = 0;
+        hashTable->numberOfSlots = 0;
+        hashTable->nextHashTable = NULL;
+        hashTableSize++;
+
+    }
     
     return hashTable;
 }
+
+HashTable *insertHashObjectIntoTheHashTableBeginning(HashTable *mainHashTableHead, HashTable *hashTable, Person *addPerson){
+    
+    
+    for(int i = 0; i < 4; i++){
+        
+        /* TODO: NEED to check for Collision */
+        /* TODO: NEED Get the size of teh HashTable */
+
+        while(addPerson != NULL){
+            hashTable->numberOfEmpty = hashTableSize - numberOfPeople;
+            hashTable->numberOfSlots = hashTableSize;
+            hashTable->numberOfFriendShip = 0;
+            hashTable->numberOfPeople = numberOfPeople;
+            hashTable->personLookUp[addPerson->personKey].personKey = addPerson->personKey;
+            hashTable->personLookUp[addPerson->personKey].personName = addPerson->personName;
+            hashTable->personLookUp[addPerson->personKey].friendName = addPerson->friendName;
+            hashTable->personLookUp[addPerson->personKey].personNameAsciiValue = addPerson->personNameAsciiValue;
+            hashTable->personLookUp[addPerson->personKey].personNameLength = addPerson->personNameLength;
+            hashTable->personLookUp[addPerson->personKey].status = addPerson->status;
+            hashTable->personLookUp[addPerson->personKey].nextPerson = addPerson->nextPerson;
+            addPerson->nextPerson = hashTable->personLookUp[addPerson->personKey].nextPerson;
+            return hashTable;
+        }
+    }
+    
+    return hashTable;
+}
+
+
+
+//void displayListHashObject(HashObject *personHashObjectHead) {
+//
+//    // Declare a new struct to store current position
+//    HashObject *currentHashObject;
+//
+//    // Check if the head pointer is null
+//    if(personHashObjectHead == NULL)
+//    {
+//        // The list is empty
+//        printf("The list is empty: \n");
+//        return;
+//    }
+//
+//    printf("This is the HashObject List: \n");
+//
+//    // Current node points to head
+//    currentHashObject = personHashObjectHead;
+//
+//    // Print out the values from the until you reach the end AKA NULL
+//    while(currentHashObject != NULL)
+//    {
+//        // Print out the value
+//        printf("This is the Hash Object->personLookUp: %p\n", currentHashObject->personLookUp);
+//        printf("This is the Hash Object->personLookup->personKey: %d\n", currentHashObject->personLookUp->personKey);
+//        printf("This is the Hash Object->personLookup->personName: %s\n", currentHashObject->personLookUp->personName);
+//        printf("This is the Hash Object->link: %p \n", currentHashObject->nextHashObject);
+//        printf("This is the Hash Object->friendlink: %p \n", currentHashObject->friendLink);
+//        printf("This is the Hash Object->hashTableSize: %d \n\n", currentHashObject->hashTableSize);
+//
+//        currentHashObject = currentHashObject->nextHashObject;
+//    }
+//
+//    printf("\n");
+//}

@@ -415,7 +415,7 @@ HashTable *CreateHashTable(int hashTableSize) {
     HashTable *hashTable = NULL;
 
     // Check to make sure the hashTable size greater than 1
-    if (hashTableSize < 1) {
+    if (hashTable->hashTableSize < 1) {
         return NULL;
     }
 
@@ -510,12 +510,14 @@ void displayTableHash(HashTable *hashTable) {
     printf("This is the displayTableHash Function\n\n");
     
     for(int i = 0; i < 10; i++) {
-        printf("[%d] This is the Person ID : %d\n", i, hashTable->personLookUp[i].personKey);
-        printf("This is the Person Name Length : %d\n", hashTable->personLookUp[i].personNameLength);
-        printf("This is the Person Name Asics Value : %d\n", hashTable->personLookUp[i].personNameAsciiValue);
-        printf("This is the Person Name : %s\n", hashTable->personLookUp[i].personName);
-        printf("This is the Person Friend : %s\n", hashTable->personLookUp[i].friendName);
-        printf("This is the Person Status : %d\n\n", hashTable->personLookUp[i].status);
+        printf("[%d] This is the Person ID : %d\n", i, hashTable->hashTableValue);
+        printf("This is the Hash Table->hashTablePersonName : %s\n", hashTable->hashTablePersonName);
+        printf("This is the Hash Table->hashTableFriendName : %s\n", hashTable->hashTableFriendName);
+        printf("This is the Hash Table->hashTableSize: %d\n", hashTable->hashTableSize);
+        printf("This is the Hash Table->numberOfEmpty : %s\n", hashTable->numberOfEmpty);
+        printf("This is the Hash Table->numberOfFriendShip : %d\n\n", hashTable->numberOfFriendShip);
+        printf("This is the Hash Table->numberOfHashPerson : %d\n\n", hashTable->numberOfHashPerson);
+    
     
     }
 
