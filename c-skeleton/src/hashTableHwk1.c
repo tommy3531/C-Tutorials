@@ -510,8 +510,8 @@ void displayTableHash(HashTable *hashTable) {
     printf("This is the displayTableHash Function\n\n");
     
     for(int i = 0; i < 10; i++) {
-        printf("[%d] This is the Person ID : %d\n", i, hashTable->hashTableValue);
-        printf("This is the Hash Table->hashTablePersonName : %s\n", hashTable->hashTablePersonName);
+        printf("[%d] This is the Person ID : %d\n", i, hashTable->hashTableSize);
+        printf("This is the Hash Table->hashTablePersonName : %s\n", hashTable->);
         printf("This is the Hash Table->hashTableFriendName : %s\n", hashTable->hashTableFriendName);
         printf("This is the Hash Table->hashTableSize: %d\n", hashTable->hashTableSize);
         printf("This is the Hash Table->numberOfEmpty : %s\n", hashTable->numberOfEmpty);

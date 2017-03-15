@@ -22,6 +22,8 @@ set(INCLUDE_STACK_LINKED_LIST ../include/stackLinkedList)
 set(INCLUDE_CONVERTER ../include/converter)
 set(INCLUDE_DATA_STRUCTURE ../include/dataStructure)
 set(INCLUDE_HASHTABLE ../include/HashTable)
+set(INCLUDE_REDBLACKTREES ../include/redBlackTrees)
+
 # Set link directories
 # yaml
 #link_directories(../link/libyaml-master)
@@ -39,6 +41,8 @@ include_directories(${INCLUDE_STACK_LINKED_LIST})
 include_directories(${INCLUDE_CONVERTER})
 include_directories(${INCLUDE_DATA_STRUCTURE})
 include_directories(${INCLUDE_HASHTABLE})
+include_directories(${INCLUDE_REDBLACKTREES})
+
 
 
 # Sets the program sources
@@ -67,7 +71,9 @@ set(testProject_SOURCES
     #../include/data/read.txt
     #../include/data/write.txt
 	#../include/dbg.h)
-        ../src/hashTable.c)
+        #../src/hashTable.c
+        ../src/redblacktree.c
+        )
 
 # link the libraries to the executable
 

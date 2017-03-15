@@ -1,12 +1,16 @@
+enum color { BLACK, RED };
+
 struct node
 {
     struct node *leftNode;
     int info;
+    enum color Color;
     struct node *rightNode;
+    
 };
 
 struct node *createNode(int x);
-struct node *insert(struct node *root, int data);
+struct node *insert(int data);
 void display(struct node *root, int level);
 void preOrder(struct node *root);
 void inOrder(struct node *root);
@@ -17,6 +21,8 @@ int height(struct node *root);
 
 #define MAX 100
 struct node *queue[MAX];
+struct node *root = NULL;
+
 int front = -1;
 int rear = -1;
 
@@ -30,27 +36,45 @@ struct node *createNode(int x)
     struct node *current;
     current = (struct node *)malloc(sizeof(struct node));
     current->info = x;
+    current->Color = RED;
     current->leftNode = NULL;
     current->rightNode = NULL;
 
     return current;
 }
 
-struct node *insert(struct node *root, int data)
+struct node *insert(int data)
 {
     if(root == NULL)
     {
-        return createNode(data);
+        root = createNode(data);
+        root->Color = BLACK;
+        return root;
     }
 
-    if(data < root->info)
+    else if(data < root->info)
     {
-        root->leftNode = insert(root->leftNode, data);
+        if(root->leftNode == NULL)
+        {
+            root->leftNode = root;
+        }
+        else
+        {
+            root = root->leftNode;
+        }
+
     }
 
-    else if (data > root->info)
+    else if(data > root->info)
     {
-        root->rightNode = insert(root->rightNode, data);
+        if(root->rightNode == NULL)
+        {
+            root->rightNode = root;
+        }
+        else
+        {
+            root = root->rightNode;
+        }
     }
 
 
@@ -73,6 +97,7 @@ void display(struct node *root, int level)
         printf("  ");
     }
     printf("%d", root->info);
+    //printf("%d", root->Color);
     display(root->leftNode, level+1);
 }
 
@@ -83,6 +108,7 @@ void preOrder(struct node *root)
         return;
     }
     printf("%d ", root->info);
+    printf("%d", root->Color);
     preOrder(root->leftNode);
     preOrder(root->rightNode);
 }
@@ -203,3 +229,37 @@ struct node *deleteQueue()
     return item;
 }
 
+//printf("This is from the binaryTree.c\n");
+//struct node *tree = NULL;
+//tree = insert(50);
+//tree = insert(30);
+//tree = insert(20);
+//tree = insert(40);
+//tree = insert(70);
+//tree = insert(60);
+//tree = insert(80);
+//
+//display(tree, 0);
+//printf("\n\n");
+//
+//display(tree, 1);
+//printf("\n\n");
+//
+//
+//printf("Preorder: ");
+//preOrder(tree);
+//printf("\n\n");
+//
+//printf("Inorder: ");
+//inOrder(tree);
+//printf("\n\n");
+//
+//printf("PostOrder: ");
+//postOrder(tree);
+//printf("\n\n");
+//
+//printf("Level order: ");
+//levelOrder(tree);
+//printf("\n\n");
+//
+//printf("Height of tree is %d\n", height(tree));
