@@ -1,35 +1,31 @@
-int height(Node *root)
+
+
+void treeFixCase1(Node *root)
 {
-    int heightLeft;
-    int heightRight;
-    
     if(root == NULL)
     {
-        return 0;
-    }
-    
-    heightLeft = height(root->left);
-    heightRight = height(root->right);
-    
-    if(heightLeft > heightRight)
-    {
-        return 1+heightLeft;
+        root->color = BLACK;
     }
     else
     {
-        return 1+heightRight;
+        printf("We have a different problem\n");
     }
 }
 
-int compare(int left, int right)
+int getLevelCount(Node *root)
 {
-    if(left > right)
+    if (root == NULL)
     {
-        return 1;
+        return 0;
     }
-    if(left < right)
+    int leftMaxLevel = 1 + getLevelCount(root->left);
+    int rightMaxLevel = 1 + getLevelCount(root->right);
+    if (leftMaxLevel > rightMaxLevel)
     {
-        return -1;
+        return leftMaxLevel;
     }
-    return 0;
+    else
+    {
+        return rightMaxLevel;
+    }
 }

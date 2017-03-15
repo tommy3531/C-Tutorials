@@ -12,19 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03e08acc-f06c-43b8-893d-d86349dfa4db" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/include/redBlackTrees/Notes.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/include/redBlackTrees/extracode.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/include/redBlackTrees/redblacktree.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/redblacktree.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/c-skeleton.iml" afterPath="$PROJECT_DIR$/.idea/c-skeleton.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeLists.txt" afterPath="$PROJECT_DIR$/build/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/binaryTrees/binaryTree.h" afterPath="$PROJECT_DIR$/include/binaryTrees/binaryTree.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/binaryTree.c" afterPath="$PROJECT_DIR$/src/binaryTree.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hashTable.c" afterPath="$PROJECT_DIR$/src/hashTable.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hashTableHwk1.c" afterPath="$PROJECT_DIR$/src/hashTableHwk1.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/redBlackTrees/extracode.txt" afterPath="$PROJECT_DIR$/include/redBlackTrees/extracode.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h" afterPath="$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h" afterPath="$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/redBlackTrees/redblacktree.h" afterPath="$PROJECT_DIR$/include/redBlackTrees/redblacktree.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redblacktree.c" afterPath="$PROJECT_DIR$/src/redblacktree.c" />
     </list>
     <ignored path="c-skeleton.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redblacktree.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="redblacktree.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redblacktree.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state relative-caret-position="268">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#53#71#0" expanded="true" />
               </folding>
@@ -69,21 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redblacktree.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="redblacktree.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redblacktree.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="823">
-              <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="redBlackTreeOperations.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="32" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="32" />
+            <state relative-caret-position="-182">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,18 +75,18 @@
       <file leaf-file-name="redblackTreePrint.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="591">
+              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="extracode.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/redBlackTrees/extracode.txt">
+      <file leaf-file-name="redBlackTreeOperations.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="823">
-              <caret line="672" column="1" selection-start-line="672" selection-start-column="1" selection-end-line="672" selection-end-column="1" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -155,10 +138,10 @@
         <option value="$PROJECT_DIR$/build/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/binaryTree.c" />
         <option value="$PROJECT_DIR$/include/redBlackTrees/extracode.txt" />
-        <option value="$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h" />
         <option value="$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h" />
-        <option value="$PROJECT_DIR$/include/redBlackTrees/redblacktree.h" />
+        <option value="$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h" />
         <option value="$PROJECT_DIR$/src/redblacktree.c" />
+        <option value="$PROJECT_DIR$/include/redBlackTrees/redblacktree.h" />
       </list>
     </option>
   </component>
@@ -170,7 +153,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1354" />
+    <option name="width" value="1122" />
     <option name="height" value="1336" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -569,7 +552,7 @@
       <workItem from="1488930764250" duration="65000" />
       <workItem from="1488931445133" duration="107000" />
       <workItem from="1488933350389" duration="759000" />
-      <workItem from="1489255293007" duration="85879000" />
+      <workItem from="1489255293007" duration="103337000" />
     </task>
     <task id="LOCAL-00001" summary="Read text file with fscanf, sent the fscanf objects to the Customer struct">
       <created>1486088982949</created>
@@ -739,11 +722,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488175354357</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="RedBlack Tree">
+      <created>1489584533351</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1489584533351</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481823000" />
+    <option name="totallyTimeSpent" value="499281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,20 +745,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1354" height="1336" extended-state="0" />
+    <frame x="0" y="23" width="1122" height="1336" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17554389" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21253406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29133227" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30256823" sideWeight="0.4970906" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16372392" sideWeight="0.50332224" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2929374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2929374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32877815" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31701446" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31701446" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -830,7 +820,8 @@
     <MESSAGE value="Changed Arrays to Pointers&#10;" />
     <MESSAGE value="Added HashTable.c and Header File&#10;Person-&gt;HashObject-&gt;HashTable&lt;-HashFriend" />
     <MESSAGE value="Fixed hashTable able to create a person and add them to the hashTable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed hashTable able to create a person and add them to the hashTable" />
+    <MESSAGE value="RedBlack Tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="RedBlack Tree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1241,36 +1232,61 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/redblacktree.c</url>
-          <line>27</line>
-          <option name="timeStamp" value="825" />
+          <line>31</line>
+          <option name="timeStamp" value="929" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/redblacktree.c</url>
-          <line>26</line>
-          <option name="timeStamp" value="827" />
+          <line>32</line>
+          <option name="timeStamp" value="930" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/redblacktree.c</url>
-          <line>25</line>
-          <option name="timeStamp" value="829" />
+          <line>30</line>
+          <option name="timeStamp" value="931" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/redblacktree.c</url>
-          <line>24</line>
-          <option name="timeStamp" value="831" />
+          <url>file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h</url>
+          <line>128</line>
+          <option name="timeStamp" value="936" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/redblacktree.c</url>
-          <line>34</line>
-          <option name="timeStamp" value="840" />
+          <url>file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h</url>
+          <line>130</line>
+          <option name="timeStamp" value="937" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h</url>
+          <line>132</line>
+          <option name="timeStamp" value="938" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h</url>
+          <line>131</line>
+          <option name="timeStamp" value="939" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h</url>
+          <line>135</line>
+          <option name="timeStamp" value="940" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h</url>
+          <line>136</line>
+          <option name="timeStamp" value="941" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="841" />
+      <option name="time" value="942" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="mainRedBlackTree" />
+        <watch expression="root" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/include/stackLinkedList/stackLinkedList.h">
@@ -1483,6 +1499,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="513" column="80" selection-start-line="513" selection-start-column="80" selection-end-line="513" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1525,14 +1544,6 @@
           <folding>
             <element signature="e#0#18#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/Notes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1589,8 +1600,24 @@
         <state relative-caret-position="360">
           <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/Notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/extracode.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="104" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1602,45 +1629,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/extracode.txt">
+    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="672" column="1" selection-start-line="672" selection-start-column="1" selection-end-line="672" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redblackTreePrint.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redBlackTreeOperations.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redblacktree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
+        <state relative-caret-position="591">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redblacktree.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state relative-caret-position="268">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#53#71#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/redBlackTrees/redblacktree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

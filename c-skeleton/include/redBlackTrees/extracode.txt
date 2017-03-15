@@ -671,3 +671,53 @@ Node *getMainRedBlackTree()
 {
     return mainRBTree;
 }
+
+Node *insertNode(Node *treeRoot, Node *insertNode)
+{
+    // Check if the tree is NULL
+    if(mainRBTree == NULL)
+    {
+        // If the tree is NULL add the data to tree
+        mainRBTree = createNode(data);
+    }
+    else {
+        int is_left = 0;
+        int compareValue = 0;
+        insertNode = mainRBTree;
+        Node *prev = NULL;
+
+        while (insertNode != NULL)
+        {
+            compareValue = compare(data, insertNode->value);
+
+            prev = insertNode;
+
+            if (compareValue < 0)
+            {
+                is_left = 1;
+                insertNode = insertNode->left;
+
+            }
+
+            else if (compareValue > 0)
+            {
+                is_left = 0;
+                insertNode = insertNode->right;
+
+            }
+        }
+
+        if (is_left)
+        {
+            prev->left = createNode(data);
+
+
+        }
+        else
+        {
+            prev->right = createNode(data);
+        }
+
+    }
+    return mainRBTree;
+}

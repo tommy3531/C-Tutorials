@@ -12,28 +12,53 @@
 #include <redBlackTrees/redblackTreePrint.h>
 #include <redBlackTrees/redBlackTreeOperations.h>
 
-
-
-
 int main() {
 
    // Node *root = NULL;
-    Node *RBTRoot = NULL;
-    RBTRoot = (Node *)malloc(sizeof(Node));
-
-    //checkInsertion(root);
-    RBTRoot = insertNode(RBTRoot, 8);
-    RBTRoot = insertNode(RBTRoot, 3);
-    RBTRoot = insertNode(RBTRoot, 10);
-    RBTRoot = insertNode(RBTRoot, 1);
-    RBTRoot = insertNode(RBTRoot, 6);
-    RBTRoot = insertNode(RBTRoot, 14);
-    RBTRoot = insertNode(RBTRoot, 4);
-    RBTRoot = insertNode(RBTRoot, 7);
-    RBTRoot = insertNode(RBTRoot, 13);
+    Node *treeRoot = NULL;
+    Node *nodeCreatePtr = NULL;
+    Node *dummyTreeRoot = NULL;
     
-    displayTree(RBTRoot);
-    fixTree(RBTRoot, 14);
+    treeRoot = (Node *)malloc(sizeof(Node));
+    nodeCreatePtr = (Node *)malloc(sizeof(Node));
+
+    // Insert Node need treeRoot and Number
+    // return pointer to tree root
+//    treeRoot = insertNode(dummyTreeRoot, nodeCreatePtr, 9);
+//    treeRoot = insertNode(treeRoot, nodeCreatePtr, 25);
+//    treeRoot = insertNode(treeRoot, nodeCreatePtr, 43);
+    
+    treeRoot = insertNode(dummyTreeRoot, nodeCreatePtr, 11);
+    treeRoot = insertNode(treeRoot, nodeCreatePtr, 2);
+    treeRoot = insertNode(treeRoot, nodeCreatePtr, 14);
+//    treeRoot = insertNode(treeRoot, 1);
+//    treeRoot = insertNode(treeRoot, 7);
+//    treeRoot = insertNode(treeRoot, 15);
+//    treeRoot = insertNode(treeRoot, 5);
+//    treeRoot = insertNode(treeRoot, 8);
+    
+    printf("Level Order\n");
+    printLevelOrder(treeRoot);
+
+    
+    
+    // Insert node need tree Root and Node to insert
+    // returns pointer to root of tree
+
+    
+    
+    
+    
+//    displayTree(treeRoot);
+//    printf("\n");
+//    printf("Printing Parent\n");
+//    printParent(treeRoot);
+//    printf("This is preorder\n");
+//    preorder(treeRoot);
+    
+    //fixTree(RBTRoot, 14);
+    //treeFixCase1(RBTRoot);
+    //displayTree(RBTRoot);
 
 
 

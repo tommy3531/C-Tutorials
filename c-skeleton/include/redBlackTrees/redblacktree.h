@@ -1,6 +1,7 @@
 typedef enum NodeColor {
     BLACK,
     RED,
+    EMPTY
 }NodeColor;
 
 typedef struct Node
@@ -23,7 +24,7 @@ typedef struct Info
 Node *mainRBTree = NULL;
 
 // Function Prototype
-int compare(int left, int right);
+int compare(int, int);
 
 
 
@@ -51,47 +52,68 @@ Node* createNode(int value)
     return newNode;
 }
 
-Node *insertNode(Node *insertNode, int data)
+Node *insertNode(Node *treeRoot, Node *nodeInsert, int data)
 {
+    //Node * newNode = NULL;
     // Check if the tree is NULL
-    if(mainRBTree == NULL)
+    if(treeRoot == NULL)
     {
         // If the tree is NULL add the data to tree
-        mainRBTree = createNode(data);
+        treeRoot = createNode(data);
+        treeRoot->color = BLACK;
+        treeRoot->parent = treeRoot;
+        return treeRoot;
     }
     else {
         int is_left = 0;
         int compareValue = 0;
-        insertNode = mainRBTree;
+        nodeInsert = treeRoot;
         Node *prev = NULL;
-        
-        while (insertNode != NULL)
+
+        while (nodeInsert != NULL)
         {
-            compareValue = compare(data, insertNode->value);
-            prev = insertNode;
-            if (compareValue < 0)
+            nodeInsert = createNode(data);
+            compareValue = compare(nodeInsert->value, treeRoot->value);
+            prev = nodeInsert;
+            if (compareValue <= 0)
             {
                 is_left = 1;
-                insertNode = insertNode->left;
+                prev = treeRoot;
+                nodeInsert = nodeInsert->left;
             }
-            else if (compareValue > 0)
+            else if (compareValue >= 0)
             {
                 is_left = 0;
-                insertNode = insertNode->right;
+                nodeInsert = nodeInsert->right;
             }
-        
+
         }
+
         if (is_left) {
             prev->left = createNode(data);
         } else {
             prev->right = createNode(data);
         }
-    
+
     }
-    return mainRBTree;
+    return treeRoot;
 }
 
 void fixTree(Node *insertNode, int data)
 {
     printf("This is the FixTree Function\n");
+}
+
+
+int compare(int left, int right)
+{
+    if(left > right)
+    {
+        return 1;
+    }
+    if(left < right)
+    {
+        return -1;
+    }
+    return 0;
 }
