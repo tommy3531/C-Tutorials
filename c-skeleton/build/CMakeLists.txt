@@ -23,6 +23,7 @@ set(INCLUDE_CONVERTER ../include/converter)
 set(INCLUDE_DATA_STRUCTURE ../include/dataStructure)
 set(INCLUDE_HASHTABLE ../include/HashTable)
 set(INCLUDE_REDBLACKTREES ../include/redBlackTrees)
+set(INCLUDE_BINARYTREE ../include/binaryTrees)
 
 # Set link directories
 # yaml
@@ -42,6 +43,7 @@ include_directories(${INCLUDE_CONVERTER})
 include_directories(${INCLUDE_DATA_STRUCTURE})
 include_directories(${INCLUDE_HASHTABLE})
 include_directories(${INCLUDE_REDBLACKTREES})
+include_directories(${INCLUDE_BINARYTREE})
 
 
 
@@ -66,13 +68,14 @@ set(testProject_SOURCES
 	#../src/linkedList.c
     #../src/stackLinkedList.c
     #../src/converter.c
-    #../src/binaryTree.c
+    ../src/binaryTree.c
     #../src/doublyLinkedList.c
     #../include/data/read.txt
     #../include/data/write.txt
 	#../include/dbg.h)
         #../src/hashTable.c
-        ../src/redblacktree.c
+        #../src/redblacktree.c
+        #../src/strtokTutorial.c
         )
 
 # link the libraries to the executable

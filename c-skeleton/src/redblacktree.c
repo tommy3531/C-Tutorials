@@ -24,13 +24,13 @@ int main() {
 
     // Insert Node need treeRoot and Number
     // return pointer to tree root
-//    treeRoot = insertNode(dummyTreeRoot, nodeCreatePtr, 9);
-//    treeRoot = insertNode(treeRoot, nodeCreatePtr, 25);
-//    treeRoot = insertNode(treeRoot, nodeCreatePtr, 43);
+    nodeCreatePtr = createNode(9);
+    nodeCreatePtr = createNode(25);
+    nodeCreatePtr = createNode(43);
     
-    treeRoot = insertNode(dummyTreeRoot, nodeCreatePtr, 11);
-    treeRoot = insertNode(treeRoot, nodeCreatePtr, 2);
-    treeRoot = insertNode(treeRoot, nodeCreatePtr, 14);
+    treeRoot = insertNode(dummyTreeRoot, nodeCreatePtr);
+    treeRoot = insertNode(treeRoot, nodeCreatePtr);
+    treeRoot = insertNode(treeRoot, nodeCreatePtr);
 //    treeRoot = insertNode(treeRoot, 1);
 //    treeRoot = insertNode(treeRoot, 7);
 //    treeRoot = insertNode(treeRoot, 15);

@@ -25,6 +25,7 @@ Node *mainRBTree = NULL;
 
 // Function Prototype
 int compare(int, int);
+void fixTree(Node *root, Node *newNode);
 
 
 
@@ -52,56 +53,51 @@ Node* createNode(int value)
     return newNode;
 }
 
-Node *insertNode(Node *treeRoot, Node *nodeInsert, int data)
+Node *insertNode(Node* root, Node * int data)
 {
-    //Node * newNode = NULL;
-    // Check if the tree is NULL
-    if(treeRoot == NULL)
-    {
-        // If the tree is NULL add the data to tree
-        treeRoot = createNode(data);
-        treeRoot->color = BLACK;
-        treeRoot->parent = treeRoot;
-        return treeRoot;
+    /* If the tree is empty, return a new node */
+    if (root == NULL) {
+        root = createNode(data);
+        root->color = BLACK;
+        return root;
     }
-    else {
-        int is_left = 0;
-        int compareValue = 0;
-        nodeInsert = treeRoot;
-        Node *prev = NULL;
-
-        while (nodeInsert != NULL)
-        {
-            nodeInsert = createNode(data);
-            compareValue = compare(nodeInsert->value, treeRoot->value);
-            prev = nodeInsert;
-            if (compareValue <= 0)
-            {
-                is_left = 1;
-                prev = treeRoot;
-                nodeInsert = nodeInsert->left;
-            }
-            else if (compareValue >= 0)
-            {
-                is_left = 0;
-                nodeInsert = nodeInsert->right;
-            }
-
-        }
-
-        if (is_left) {
-            prev->left = createNode(data);
-        } else {
-            prev->right = createNode(data);
-        }
-
+    
+    Node *nodeInsert = NULL;
+    nodeInsert = createNode(data);
+    /* Otherwise, recur down the tree */
+    if (root->value > nodeInsert->value) {
+        root->right = insertNode(root->right, data);
+        root->right->parent = nodeInsert;
     }
-    return treeRoot;
+    else if (root->value < nodeInsert->value) {
+    
+        root->left = insertNode(root->left, data);
+        root->left->parent = nodeInsert;
+    
+    }
+    
+    /* return the (unchanged) node pointer */
+    //return root;
+
+    fixTree(root, nodeInsert);
+    // This is an issue
+    return root;
 }
 
-void fixTree(Node *insertNode, int data)
+
+//Everything is inserted fix the color and properites
+
+void fixTree(Node *root, Node *newNode)
 {
-    printf("This is the FixTree Function\n");
+    //Node *uncle = NULL;
+    if(root == newNode){
+        newNode->color = BLACK;
+        printf("Node is black\n");
+    }
+    else
+    {
+        printf("Root is not null next node should be red\n");
+    }
 }
 
 
